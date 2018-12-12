@@ -1,3 +1,13 @@
 .list-group-item {
   line-height: 2.5;
 }
+@media only screen and (max-width: 1000px) {
+  body {
+    width: 90%;
+    height: 110%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 100px;
+  }
+}
