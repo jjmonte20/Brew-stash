@@ -12,6 +12,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "msql": "^1.0.3",
+    "mysql2": "^1.6.4",
     "sequelize": "^4.41.2",
     "xml-js": "^1.6.8"
   },

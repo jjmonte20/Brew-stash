@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "exampledb",
+    "password": "EpicGis20",
+    "database": "spirit_db",
     "host": "localhost",
     "dialect": "mysql"
   },
