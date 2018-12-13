@@ -1,12 +1,21 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
+  // Get all examples
+  // app.get("/api/user", function(req, res) {
+  //   db.Example.findAll({}).then(function(dbUser) {
+  //     res.json(dbUser);
+  //   });
+  // });
+
   // Get all of the breweries
   app.get("/api/breweries", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
+
 
   // Get all of the drinks
   app.get("/api/drinks", function(req, res) {
@@ -38,6 +47,14 @@ module.exports = function(app) {
   // POSTS to add breweries and drinks
 
   // Create a new example
+
+  app.post("/api/user", function(req, res) {
+    db.Example.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+
   app.post("/api/breweries", function(req, res) {
     // will need to see body for adding a brewery
     db.Example.create(req.body).then(function(dbExample) {

@@ -1,14 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": "EpicGis20",
+    "password": " ",
     "database": "spirit_db",
     "host": "localhost",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "EpicGis20",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
