@@ -150,6 +150,9 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
+
+    //will delete stuff 
+    
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
