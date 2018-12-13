@@ -8,6 +8,7 @@
     "eslint": "^5.10.0",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
+    "require-path": "^0.3.0",
     "sequelize": "^4.41.2"
   },
   "devDependencies": {},

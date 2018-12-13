@@ -3,8 +3,10 @@ module.exports = function(sequelize, DataTypes) {
 		brewer_name: DataTypes.STRING,
 		address: DataTypes.TEXT,
         rating: DataTypes.INTEGER
-	},{
-        timestamps:false
-    });
+    }
+    // ,{
+    //     timestamps:false
+    // }
+    );
 	return brewery_table;
 };

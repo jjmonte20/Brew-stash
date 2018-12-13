@@ -5,6 +5,11 @@ module.exports = function(sequelize, DataTypes) {
 		admin: DataTypes.BOOLEAN,
 		ranking: DataTypes.INTEGER
 
-	})
+	}
+	// ,{
+    //     timestamps:false
+	// }
+	);
+
 	return User;
 };
