@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^6.2.0",
+    "eslint": "^5.10.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
     "array.filter": "^0.1.6",
     "axios": "^0.18.0",
     "bcrypt-node": "^0.1.0",
