@@ -16,6 +16,7 @@ app.use(express.static("public"));
 app.engine(
   "handlebars",
   exphbs({
+    extname: "handlebars",
     defaultLayout: "main"
   })
 );
