@@ -1,4 +1,4 @@
-// THIS Does not need another run, just needed for the original list of breweries
+// THIS Does not to link with anything, just needed for the original list of breweries
 
 // need axios
 var axios =  require("axios");
@@ -31,7 +31,17 @@ axios.get("http://beermapping.com/webservice/loccity/e068110cb84a4220dc1a32f3b0b
 // {/* <zip>78738</zip> */}
             if (Bartype === "Brewpub" || Bartype === "Brewery") {
                 console.log('INSERT INTO breweryTable (name, address) VALUES ("' + barArray[i].name._text + '","' + barArray[i].street._text + ' ' + barArray[i].city._text + ' ' + barArray[i].state._text + ' ' + barArray[i].zip._text + '");');
-                // console.log();
+                // // console.log();
+                
+//                 console.log(
+// `
+// {
+// brewer_name: "${barArray[i].name._text}",
+// address: "${barArray[i].street._text}, ${barArray[i].city._text}, ${barArray[i].state._text}, ${barArray[i].zip._text}"
+// }, 
+// `
+//                 );
+
                 i++;
                 testBreweries();
             } else {
