@@ -1,9 +1,17 @@
 var usernameInput = $("input#example-text");
 var passwordInput = $("input#password-input");
 
+$("#loginButton").click(function(){
+    window.location.href="/login";
+});
+$("#createAccountButton").click(function(){
+    window.location.href="/createaccount";
+});
+var usernameInput = $("#username");
+var passwordInput = $("#password")
 $(document).ready(function(){
 	// testing the ability to add a user into the database
-	$(".clearfix").on("submit", function(event){
+	$("#loginSubmit").on("submit", function(event){
 		event.preventDefault();
 		var userData = {
 			username: usernameInput.val().trim(),
@@ -18,7 +26,7 @@ $(document).ready(function(){
 		signUpUser(userData.username, userData.password);
 		usernameInput.val("");
 		passwordInput.val("");
-	});
+    });
 
 	// Post to the signup route
 	// otherwise log any errors
@@ -30,6 +38,7 @@ $(document).ready(function(){
 			if (data.errors){
 				alert("username has already been taken");
 			} else {
+                debugger;
 				window.location.href = "/login";
 			}
 			// window.location.replace(data);
@@ -43,4 +52,6 @@ $(document).ready(function(){
 		$("#alert").fadeIn(500);
 	}
 });
+
+
 

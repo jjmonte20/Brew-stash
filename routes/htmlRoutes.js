@@ -10,16 +10,21 @@ module.exports = function(app) {
 				hideToolbar: "true",
 				breweries: breweries,
 				examples: []
+      });
+    });
+	});
+
+	app.get("/points", function(req, res) {
+		db.Example.findAll({}).then(function(dbExamples) {
+			res.render("points", {
+				title: "Points Page!",
+				msg: "Welcome!",
+				examples: dbExamples
 			});
 		});
 	});
 
-	// testing a login page
 	app.get("/login", function(req, res) {
-		// If the user already has an account send them to the members page
-		// if (req.user) {
-		// 	res.redirect("/members");
-		// }
 		res.render("login", {
 			title: "Log In!",
 			msg: "Welcome!",
@@ -57,9 +62,8 @@ module.exports = function(app) {
 			title: "Points Page!",
 			msg: "Welcome!",
 			hideToolbar: "false"
-		});
-	});
-
+    });
+  });
 
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
@@ -67,6 +71,5 @@ module.exports = function(app) {
 			title: "Page Not Found",
 			hideToolbar: "true"
 		});
-	});
-
+  });
 };
