@@ -7,6 +7,16 @@ module.exports = function(app) {
       res.render("index");
     });
   });
+
+  // testing a login page
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.render("example");
+  });
+
   // Load example page and pass in an example by id
   // homepage for a specific
   app.get("/example/:id", function(req, res) {
