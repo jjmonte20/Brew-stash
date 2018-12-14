@@ -121,17 +121,20 @@ $(document).ready(function(){
     passwordInput.val("");
   });
 
+  // Post to the signup route
+  // otherwise log any errors
   function signUpUser(username, password) {
     $.post("/api/signup", {
       username: username,
       password: password
     }).then(function(data) {
       window.location.replace(data);
+      // If there's an error, handle it by throwing up an error on the alert screen
     }).catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    alert(err.responseJSON);
-    alert(500);
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
   }
 });

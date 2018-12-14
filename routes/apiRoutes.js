@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
 
@@ -32,14 +33,18 @@ module.exports = function(app) {
       username: req.body.username,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "api/login");
+      res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
       res.json(err);
     });
   });
 
-  
+  app.post("/api/login", passport.authenticate("local"), function(req, res){
+    res.json("You did it!")
+  })
+
+
   // User adding a rating
   app.post("/api/breweries/drink/rating", function(req, res) {
     // will need to see body for adding a brewery
@@ -53,13 +58,6 @@ module.exports = function(app) {
   // POSTS to add breweries and drinks
 
   // Create a new example
-
-  app.post("/api/user", function(req, res) {
-    db.Example.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
 
   app.post("/api/breweries", function(req, res) {
     // will need to see body for adding a brewery
