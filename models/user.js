@@ -10,13 +10,18 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 			},
-		admin: DataTypes.BOOLEAN,
+		admin: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
+		}
 		// ranking: DataTypes.STRING
 		// ranking: DataTypes.INTEGER
 	});
+	// Creating a custom method for our model
 	User.prototype.validPassword = function(password) {
 		return bcrypt.compareSync(password, this.password);
 	}
+	// Will hash password
 	User.hook("beforeCreate", function(user){
 		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(12), null)
 	});
