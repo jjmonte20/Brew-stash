@@ -10,8 +10,8 @@ module.exports = function(app) {
 				hideToolbar: "true",
 				breweries: breweries,
 				examples: []
-      });
-    });
+			});
+		});
 	});
 
 	app.get("/points", function(req, res) {
@@ -33,12 +33,12 @@ module.exports = function(app) {
 	});
 
 	app.get("/breweries", function(req, res) {
-    res.render("breweries", {
-      title: "Breweries Page!",
-      msg: "Welcome!",
-      hideToolbar: "false",
-      examples: []
-    });
+		res.render("breweries", {
+			title: "Breweries Page!",
+			msg: "Welcome!",
+			hideToolbar: "false",
+			examples: []
+		});
 	});
 
 
@@ -62,8 +62,8 @@ module.exports = function(app) {
 			title: "Points Page!",
 			msg: "Welcome!",
 			hideToolbar: "false"
-    });
-  });
+		});
+	});
 
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
@@ -71,5 +71,5 @@ module.exports = function(app) {
 			title: "Page Not Found",
 			hideToolbar: "true"
 		});
-  });
+	});
 };
