@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
-      <div id="headerLeft"            class="headerSection">
-        <a id ="headerPointsLink"     class="headerItem" href="/points">Points</a>
+    <nav id="{{hideToolbar}}"class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+      <div id="headerLeft"            class="col-4">
+        <a id ="headerPointsLink"     class="headerItem">Points</a>
       </div>
-      <div id="headerMiddle"          class="headerSection">
-        <a id ="headerBreweriesLink"  class="headerItem" href="/breweries">Breweries</a>
+      <div id="headerMiddle"          class="col-4">
+        <span id ="headerBreweriesLink"  class="headerItem">Breweries</span>
       </div>
-      <div id="headerRight" class="headerSection">
+      <div id="headerRight" class="col-4">
         <span id ="headerPoints"  class="headerItem">40</span>
-        <a id ="headerAccount"    class="headerItem" href="/points">Sallan306</a>
+        <a id ="headerAccount"    class="headerItem">{{user}}</a>
       </div>
   </nav>
   {{{body}}}

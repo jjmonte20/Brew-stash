@@ -7,6 +7,7 @@ module.exports = function(app) {
       res.render("home", {
         title: "Home Page!",
         msg: "Welcome!",
+        hideToolbar: "true",
         examples: dbExamples
       });
     });
@@ -17,6 +18,7 @@ module.exports = function(app) {
       res.render("points", {
         title: "Points Page!",
         msg: "Welcome!",
+        hideToolbar: "false",
         examples: dbExamples
       });
     });
@@ -27,6 +29,7 @@ module.exports = function(app) {
       res.render("breweries", {
         title: "Breweries Page!",
         msg: "Welcome!",
+        hideToolbar: "false",
         examples: dbExamples
       });
     });
@@ -37,6 +40,7 @@ module.exports = function(app) {
       res.render("login", {
         title: "Log In!",
         msg: "Welcome!",
+        hideToolbar: "true",
         examples: dbExamples
       });
     });
@@ -47,16 +51,27 @@ module.exports = function(app) {
       res.render("createaccount", {
         title: "Create an Account!",
         msg: "Welcome!",
+        hideToolbar: "true",
+        examples: dbExamples
+      });
+    });
+  });
+  app.get("/account", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("account", {
+        title: "Your account!",
+        msg: "Welcome!",
+        hideToolbar: "false",
         examples: dbExamples
       });
     });
   });
 
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404", {
-      title: "Page Not Found"
+      title: "Page Not Found",
+      hideToolbar: "true"
     });
   });
 };

@@ -1,10 +1,18 @@
 
 @media only screen and (max-width: 1000px) {
-  ::-webkit-scrollbar { 
-    display: none; 
-}
+  
 
   /* affects all pages */
+
+  ::-webkit-scrollbar { 
+    display: none; 
+  }  
+  #true {
+    display: none;
+  }
+  #false {
+    display: default;
+  }
   .list-group-item {
     line-height: 2.5;
   }
@@ -14,6 +22,7 @@
   body {
     width: 100%;
     font-size: 100px;
+    background: yellow;
   }
   label {
     text-align: center;
@@ -23,18 +32,25 @@
     width:100%;
     height: 40%;
   }
+  .container {
+    margin-top:50px;
+  }
 
-
+.homeButton {
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  bottom: 0%;
+}
   /* /home styles */
   #home {
     font-size: 40px;
   }
   #loginButton, #createAccountButton {
     width: 100%;
-    height: 100px;
-    margin-top:50px;
-    margin-bottom: 50px;
-    font-size: 40px;
+    height: 80px;
+    margin-top:20px;
+    font-size: 30px;
   }
 
   /* /createaccount styles */
@@ -46,17 +62,90 @@
     height: 100px;
     font-size: 30px;
   }
-
-  /* header styles */
-  .navbar{
-    font-size: 20px;
-    background-color:red;
-    position: fixed;
-    width: 104%;
-    height: 10%;
-    top:0%;
-    left: -2%;
+  #accountHeader {
+    font-size: 30px;
   }
+  #homeButtonCreate {
+    bottom: -5%;
+  }
+
+  /* /login styles */
+
+  #loginForm {
+    width: 100%;
+  }
+  #homeButtonLogin {
+  }
+
+  /* /brewery styles */
+  #breweryContainer{
+    background: red;
+    width: 100%;
+    margin-top: 20px;
+    overflow: scroll;
+    height: 300px;
+  }
+  #googleMap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:100%;
+    height: 40%;
+  }
+  #homeButtonBrewery {
+    width: 50%;
+    margin-top: 0px;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    bottom: -10%;
+  }
+  /* /points styles */
+  #pointsContainer {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+    overflow: scroll;
+    background: red;
+  }
+  #homeButtonPoints {
+    width: 50%;
+    margin-top: 0px;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    bottom: -10%;
+  }
+  /* /account styles */
+  #brewmasterSettingsBox {
+    width: 100%;
+    height: 300px;
+    background: red;
+    overflow: scroll;
+  }
+  #brewmasterHeader {
+    font-size: 30px;
+  }
+  #beerSubmit {
+    margin-top: 10px;
+  }
+  #homeButtonAccount {
+    width: 50%;
+    margin-top: 0px;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    bottom: -10%;
+  }
+  /* NAVBAR styles */
+  .navbar{
+    font-size: 22px;
+    position: fixed;
+    width: 106%;
+    height: 8.5%;
+    top:0%;
+    left: -3%;
+  }
+
   .headerSection {
     width: 33.33%;
     position: relative;
@@ -68,6 +157,7 @@
     align-items: center;
     justify-content: flex-start;
     height: 125%;
+    z-index: 200;
   }
   #headerMiddle{
     background: black;
@@ -76,6 +166,7 @@
     justify-content: center;
     border: 0;
     height: 125%;
+    z-index: 200;
   }
   #headerRight{
     background: blue;
@@ -85,6 +176,7 @@
     justify-content: flex-end;
     height: 125%;
     border-right: 1%;
+    z-index: 200;
   }
 
   #headerPointsLink, #headerBreweriesLink {
