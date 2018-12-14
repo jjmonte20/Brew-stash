@@ -10,7 +10,10 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 			},
-		// admin: DataTypes.BOOLEAN
+		admin: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
+		}
 		// ranking: DataTypes.STRING
 		// ranking: DataTypes.INTEGER
 	});

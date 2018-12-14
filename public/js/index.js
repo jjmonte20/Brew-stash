@@ -128,7 +128,13 @@ $(document).ready(function(){
       username: username,
       password: password
     }).then(function(data) {
-      window.location.replace(data);
+      if (data.errors){
+        alert("username has already been taken");
+      } else {
+        window.location.href = "/login";
+      }
+      // window.location.replace(data);
+      console.log(data);
       // If there's an error, handle it by throwing up an error on the alert screen
     }).catch(handleLoginErr);
   }
