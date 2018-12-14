@@ -26,13 +26,19 @@ module.exports = function(app) {
 
   // ------------------------------------------------------- 
   // POSTS to do account info
-  app.post("/api/users", function(req, res) {
-    // will need to see body for adding a brewery
-    db.Example.create(req.body).then(function(dbExample) {
-      // will be a post for if the user has the correct account info
-      res.json(dbExample);
+  app.post("/api/signup", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      username: req.body.username,
+      password: req.body.password
+    }).then(function() {
+      res.redirect(307, "api/login");
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
     });
   });
+
   
   // User adding a rating
   app.post("/api/breweries/drink/rating", function(req, res) {
