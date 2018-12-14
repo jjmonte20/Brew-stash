@@ -1,0 +1,77 @@
+Config
+    -make sure database is connected
+Models
+    -Define tables necessary for users, brewers, password.
+    users table
+        -userId *Primary*
+        -drinkLog (can be split to multiple things, like drink name, amount drank)
+        -placesLog (can import from brewerName)
+        -favorite drinks flag (BOOL)***
+        -favorite brewery flag (BOOL)***
+        -brewer/user? (BOOL)
+    drinks table
+        -drinkId *Primary*
+        -brewery (likely imported from a brewery table)
+        -brewery name (^)
+        -type
+        -price
+        -rating
+    brewery table
+        -brewerId
+        -brewerName
+        -address
+        -rating
+    -Manipulate tables when user interacts with the application (logging a drink, checking into a brewery, etc.)
+        -User logging a drink adds one to the drink log (INSERT INTO)
+        -Ability for user to add a drink to the menu in drinks table (INSERT INTO)
+        -Ability for user to have and remove favorite drinks and brewerys (UPDATE)
+
+Routes
+    -api/Routes will need to update these three tables
+        -POST Routes
+            -user
+                -when new user is made post to users table the new user with their password and DOB
+                -when the user adds a drink or checks in to a new places
+            -drinks
+                -post when a new drink is added to the menu
+            -brewery table
+                -??? if user checks in to a brand new bar, keep a log of it
+
+        -GET Routes
+            -user
+                -get info for user log, places, and favorites
+            -breweries
+                -find existing places in the db
+                -load places from outside api that haven't been added in the database
+        -PUT Routes
+            -user
+                -update when user has a favorite drink or favorite brewery
+            -drinks
+                -update drink rating if user decides to leave a rating
+            -brewery
+                -update brewery rating if user decides to leave a rating of the place
+        -DELETE*** if we want
+            -user
+                -ability for user to delete their account
+            -drinks
+                -ability for brewer to remove a drink from the menu
+            -brewery
+                -ability for brewer to close up shop
+
+    -html/Routes
+    
+
+Front end JS
+    -Generate the initial list of brewers
+        -Generate user
+            -userName
+            -password
+            -DOB
+            -brewer?
+                -all added on submit
+        -User buttons on account
+            -log drink
+                -after a certain amount of drinks, modal appears for a discount on rideshare
+            -check in to place
+
+            
