@@ -23,6 +23,7 @@ app.use(passport.session());
 app.engine(
 	"handlebars",
 	exphbs({
+		extname: "handlebars",
 		defaultLayout: "main"
 	})
 );
