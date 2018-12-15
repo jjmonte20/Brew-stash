@@ -4,13 +4,15 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
 
 passport.use(new LocalStrategy(
+	// usernameField is based on what we called the username in the model
 	{
 		usernameField: "username"
 	},
 	function(username, password, done){
 		db.User.findOne({
 			where: {
-				username: username
+				username: username,
+
 			}
 		}).then(function(dbUser){
 			if(!dbUser){
