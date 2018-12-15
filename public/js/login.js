@@ -10,7 +10,7 @@ $("#loginSubmit").click(function(event){
       password: $("#password").val()
     }).then(function(){
       console.log("submitted");
-      // window.location.href = "/";
+      window.location.href = "/";
     }).catch(function(){
       console.log("error: Name may be taken");
     })

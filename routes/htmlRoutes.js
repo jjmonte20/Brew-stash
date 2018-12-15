@@ -15,6 +15,9 @@ module.exports = function(app) {
 	});
 
 	app.get("/points", function(req, res) {
+		if (!req.user) {
+			res.redirect("/login");
+		}
 		db.Example.findAll({}).then(function(dbExamples) {
 			res.render("points", {
 				title: "Points Page!",
@@ -33,6 +36,9 @@ module.exports = function(app) {
 	});
 
 	app.get("/breweries", function(req, res) {
+		if (!req.user) {
+			res.redirect("/login");
+		}
 		res.render("breweries", {
 			title: "Breweries Page!",
 			msg: "Welcome!",
@@ -50,6 +56,9 @@ module.exports = function(app) {
 		});
 	});
 	app.get("/account", function(req, res) {
+		if (!req.user) {
+			res.redirect("/login");
+		}
 		res.render("account", {
 			title: "Your account!",
 			msg: "Welcome!",
@@ -58,12 +67,19 @@ module.exports = function(app) {
 	});
   
 	app.get("/points", function(req, res) {
+		if (!req.user) {
+			res.redirect("/login");
+		}
 		res.render("points", {
 			title: "Points Page!",
 			msg: "Welcome!",
 			hideToolbar: "false"
 		});
 	});
+
+	// app.get("/logout", function(req, res) {
+	// 	if (!req.user)
+	// })
 
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
