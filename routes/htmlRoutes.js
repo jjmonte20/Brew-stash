@@ -72,6 +72,13 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get("/brewsignup", function(req, res) {
+		res.render("brewersignup", {
+			title: "Sign up!",
+			hideToolbar: "true"
+		});
+	});
+
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
 		res.render("404", {
