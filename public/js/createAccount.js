@@ -36,7 +36,6 @@ $(document).ready(function(){
 			if (data.errors){
 				alert("username has already been taken");
 			} else {
-                debugger;
 				window.location.href = "/login";
 			}
 			// window.location.replace(data);

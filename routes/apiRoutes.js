@@ -36,7 +36,8 @@ module.exports = function(app) {
 		}).then(function(result) {
 			console.log(result);
 			// if the user is not unique, would like to reload the page or show on the alert screen that the username is already takens
-			res.redirect(307, "/api/login");
+			// redirect should then take the user to the login page
+			return res.redirect(307, "/api/login");
 		}).catch(function(err) {
 			console.log(err);
 			res.json(err);
@@ -44,7 +45,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/login", passport.authenticate("local"), function(req, res){
-		res.json("/members");
+		return res.send(req.user);
 	});
 
 
