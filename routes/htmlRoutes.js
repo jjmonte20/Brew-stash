@@ -65,6 +65,13 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get("/adddrinks", function(req, res) {
+		res.render("addDrinks", {
+			title: "Add Drinks!",
+			hideToolbar: "true"
+		});
+	});
+
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
 		res.render("404", {

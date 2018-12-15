@@ -1,17 +1,15 @@
-var usernameInput = $("input#example-text");
-var passwordInput = $("input#password-input");
-
 $("#loginButton").click(function(){
     window.location.href="/login";
 });
 $("#createAccountButton").click(function(){
     window.location.href="/createaccount";
 });
-var usernameInput = $("#username");
-var passwordInput = $("#password")
+var usernameInput = $("#creatAccountUserName");
+var passwordInput = $("#createAccountPassword")
 $(document).ready(function(){
 	// testing the ability to add a user into the database
-	$("#loginSubmit").on("submit", function(event){
+	$("#createAccountSubmit").on("click", function(event){
+		console.log("buttonworks");
 		event.preventDefault();
 		var userData = {
 			username: usernameInput.val().trim(),
@@ -53,5 +51,13 @@ $(document).ready(function(){
 	}
 });
 
+// nav ------------------------------------------------------------
 
+function openNav() {
+	document.getElementById("mySidenav").style.display = "block";
+}
+  
+function closeNav() {
+	document.getElementById("mySidenav").style.display = "none";
+}
 
