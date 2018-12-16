@@ -36,10 +36,9 @@ $(document).ready(function(){
 			if (data.errors){
 				alert("username has already been taken");
 			} else {
-                debugger;
-				window.location.href = "/login";
+				// window.location.href = "/login";
+				window.location.replace(data);
 			}
-			// window.location.replace(data);
 			console.log(data);
 			// If there's an error, handle it by throwing up an error on the alert screen
 		}).catch(handleLoginErr);

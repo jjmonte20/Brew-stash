@@ -1,63 +1,41 @@
-$("#loginButton").click(function(){
-    window.location.href="/login";
+// login will look similar to this on the front end
+// login form will work similarly to creating account
+// except that we are not adding new values
+// simply looking for a pair of values that exists in the database
+$(document).ready(function() {
+  // login submit will test the user data to ensure it is consistent with the database
+  // on click event to start the process
+  $("#login").on("submit", function(event){
+    event.preventDefault();
+    var userLoginData = {
+      username: $("#username").val().trim(),
+      password: $("#password").val().trim()
+    };
+
+    console.log(userLoginData);
+    // test to see that the user input any information
+    if (!userLoginData.username || !userLoginData.password) {
+      // console.log("button works");
+      return;
+    }
+
+    loginUser(userLoginData.username, userLoginData.password);
+    usernameInput.val("");
+    userpasswordInput.val("");
+    // console.log("login button pressed");
+    function loginUser(username, password) {
+      $.post("/api/login", {
+        username: username,
+        password: password
+      }).then(function(data){
+        console.log("submitted");
+        // window.location.href = "/";
+        window.location.replace(data);
+      }).catch(function(){
+        console.log("error: Name may be taken");
+      });
+    } 
+    // =================== loginSubmit click
+  });
+// ====================document.on ready
 });
-$("#createAccountButton").click(function(){
-    window.location.href="/createaccount";
-});
-var usernameInput = $("#creatAccountUserName");
-var passwordInput = $("#createAccountPassword")
-$(document).ready(function(){
-	// testing the ability to add a user into the database
-	$("#createAccountSubmit").on("click", function(event){
-		console.log("buttonworks");
-		event.preventDefault();
-		var userData = {
-			username: usernameInput.val().trim(),
-			password: passwordInput.val().trim()
-		};
-		console.log(userData);
-    
-		if (!userData.username || !userData.password) {
-			alert ("Please insert both username and password!");
-		}
-
-		signUpUser(userData.username, userData.password);
-		usernameInput.val("");
-		passwordInput.val("");
-    });
-
-	// Post to the signup route
-	// otherwise log any errors
-	function signUpUser(username, password) {
-		$.post("/api/signup", {
-			username: username,
-			password: password
-		}).then(function(data) {
-			if (data.errors){
-				alert("username has already been taken");
-			} else {
-                debugger;
-				window.location.href = "/login";
-			}
-			// window.location.replace(data);
-			console.log(data);
-			// If there's an error, handle it by throwing up an error on the alert screen
-		}).catch(handleLoginErr);
-	}
-
-	function handleLoginErr(err) {
-		$("#alert .msg").text(err.responseJSON);
-		$("#alert").fadeIn(500);
-	}
-});
-
-// nav ------------------------------------------------------------
-
-function openNav() {
-	document.getElementById("mySidenav").style.display = "block";
-}
-  
-function closeNav() {
-	document.getElementById("mySidenav").style.display = "none";
-}
-
