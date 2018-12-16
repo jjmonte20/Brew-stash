@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
 
     // POST route for saving a new drink
-    app.post("api/breweries/drinks", function(req, res) {
+    app.post("/api/breweries/drinks", function(req, res) {
         db.Drinks.create(req.body).then(function(dbPost) {
             res.json(dbPost);
         })

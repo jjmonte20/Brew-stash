@@ -15,7 +15,7 @@ $(document).ready(function() {
     console.log(userLoginData);
     // test to see that the user input any information
     if (!userLoginData.username || !userLoginData.password) {
-      console.log("button works");
+      // console.log("button works");
       return;
     }
 
