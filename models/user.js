@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
 		password: {
 			type: DataTypes.STRING,
 			allowNull: false
-		}
+		},
+		// admin: DataTypes.BOOL
 		// ranking: DataTypes.STRING
 		// ranking: DataTypes.INTEGER
 	});

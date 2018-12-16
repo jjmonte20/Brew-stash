@@ -5,17 +5,17 @@
 $(document).ready(function() {
   // login submit will test the user data to ensure it is consistent with the database
   // on click event to start the process
-  var usernameInput = $("#username").val();
-  var userpasswordInput = $("#password").val();
-  $("#loginSubmit").click(function(event){
+  $("#login").on("submit", function(event){
     event.preventDefault();
     var userLoginData = {
-      username: usernameInput,
-      password: userpasswordInput
+      username: $("#username").val().trim(),
+      password: $("#password").val().trim()
     };
 
+    console.log(userLoginData);
     // test to see that the user input any information
     if (!userLoginData.username || !userLoginData.password) {
+      console.log("button works");
       return;
     }
 
