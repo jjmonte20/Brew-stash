@@ -7,3 +7,11 @@ $("#homeButtonCreate").click(function(){ window.location.href="/";});
 $("#headerLeft").click(function(){ window.location.href="/points";});
 $("#headerMiddle").click(function(){ window.location.href="/breweries";});
 $("#headerRight").click(function(){ window.location.href="/account";});
+
+function openNav() {
+	document.getElementById("mySidenav").style.display = "block";
+}
+  
+function closeNav() {
+	document.getElementById("mySidenav").style.display = "none";
+}

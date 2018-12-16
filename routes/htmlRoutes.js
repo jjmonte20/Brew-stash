@@ -10,8 +10,8 @@ module.exports = function(app) {
 			msg: "Welcome!",
 			hideToolbar: "true",
 			examples: []
-		})
-	})
+		});
+	});
 
 	app.get("/points", isAuthenticated, function(req, res) {
 		res.render("points", {
