@@ -1,26 +1,23 @@
 var db = require("../models");
+// using the middleware to route the user around
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 	// Load index page
 	app.get("/", function(req, res) {
-		db.brewery_table.findAll({}).then(function(breweries) {
-			res.render("index", {
-				title: "Home Page!",
-				msg: "Welcome!",
-				hideToolbar: "true",
-				breweries: breweries,
-				examples: []
-			});
+		res.render("index", {
+			title: "Home Page!",
+			msg: "Welcome!",
+			hideToolbar: "true",
+			examples: []
 		});
 	});
 
-	app.get("/points", function(req, res) {
-		db.Example.findAll({}).then(function(dbExamples) {
-			res.render("points", {
-				title: "Points Page!",
-				msg: "Welcome!",
-				examples: dbExamples
-			});
+	app.get("/points", isAuthenticated, function(req, res) {
+		res.render("points", {
+			title: "Points Page!",
+			msg: "Welcome!",
+			examples: dbExamples
 		});
 	});
 
@@ -32,7 +29,7 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get("/breweries", function(req, res) {
+	app.get("/breweries", isAuthenticated, function(req, res) {
 		res.render("breweries", {
 			title: "Breweries Page!",
 			msg: "Welcome!",
@@ -49,7 +46,7 @@ module.exports = function(app) {
 			hideToolbar: "true",
 		});
 	});
-	app.get("/account", function(req, res) {
+	app.get("/account", isAuthenticated, function(req, res) {
 		res.render("account", {
 			title: "Your account!",
 			msg: "Welcome!",
@@ -57,42 +54,6 @@ module.exports = function(app) {
 		});
 	});
   
-	app.get("/points", function(req, res) {
-		res.render("points", {
-			title: "Points Page!",
-			msg: "Welcome!",
-			hideToolbar: "false"
-		});
-	});
-
-	app.get("/edit", function(req, res) {
-		res.render("editDrinks", {
-			title: "Add Drinks!",
-			hideToolbar: "true"
-		});
-	});
-
-	app.get("/brewsignup", function(req, res) {
-		res.render("brewersignup", {
-			title: "Sign up!",
-			hideToolbar: "true"
-		});
-	});
-
-	app.get("/admin", function(req, res) {
-		res.render("adminpage", {
-			title: "Sign up!",
-			hideToolbar: "true"
-		});
-	});
-
-	app.get("/accountinfo", function(req, res) {
-		res.render("useraccount", {
-			title: "Sign up!",
-			hideToolbar: "true"
-		});
-	});
-
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
 		res.render("404", {
