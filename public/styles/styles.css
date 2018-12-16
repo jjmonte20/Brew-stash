@@ -14,6 +14,79 @@
 
 
 @media only screen and (max-width: 1000px) {
+  /* nav bar  */
+
+  #navbar1{
+    position: fixed;
+    top: 0;
+    background-color: #023446;
+    color: #DCD8AD;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    float: left;
+  border-bottom: 20px;
+
+  }
+ 
+
+  #headerWords{
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    position: absolute;
+    top: 0;  
+    left: 25%;  
+    padding: 5px;
+  }
+
+  /*home page buttons */
+  
+  #indexBody{
+    position:absolute;
+    bottom: 10%;
+  }
+
+  #loginButton1{
+    font-family: 'Oswald', sans-serif;
+
+    box-sizing: border-box;
+    height:50px;
+    width: 80%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
+
+  #signupButton{
+    font-family: 'Oswald', sans-serif;
+
+    box-sizing: border-box;
+    height: 50px;
+    width:80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+
+  }
+
+  /*create account page */
+
+  #brewdrink{
+    font-size: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .nav-link{
+    color: #023446;
+  }
   
 
   /* affects all pages */
@@ -36,7 +109,7 @@
   body {
     width: 100%;
     font-size: 100px;
-    background: yellow;
+    background: white;
   }
   label {
     text-align: center;
@@ -58,7 +131,9 @@
 }
   /* /home styles */
   #home {
-    font-size: 40px;
+    border-top: 20px;
+    font-size: 15px;
+    padding: 50px 0;
   }
   #loginButton, #createAccountButton {
     width: 100%;
@@ -94,7 +169,8 @@
 
   /* /brewery styles */
   #breweryContainer{
-    background: red;
+    background: #ECE3C5;
+    color: #023446;
     width: 100%;
     margin-top: 10px;
     overflow: scroll;
@@ -115,6 +191,8 @@
     position: absolute;
     left: 25%;
     bottom: -10%;
+    background-color: #023446;
+    color: #DCD8AD;
   }
   /* /points styles */
   #pointsContainer {
@@ -137,7 +215,10 @@
   #brewmasterSettingsBox {
     width: 100%;
     height: 250px;
-    background: red;
+    background-color: #ECE3C5;
+    color: #023446;
+
+
     overflow: scroll;
     border-radius: 10px;
   }
@@ -146,6 +227,17 @@
   }
   #beerSubmit {
     margin-top: 10px;
+    font-family: 'Oswald', sans-serif;
+
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 5px;
+
   }
   #homeButtonAccount {
     width: 50%;

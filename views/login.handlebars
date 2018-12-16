@@ -6,7 +6,10 @@
 		<a href="#">Breweries</a>
 	</div>
 
-	<span style="font-size:30px;cursor:pointer;text-align:center" onclick="openNav()">&#9776; Spirit Tavern</span>
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
+      <p id ="headerWords">SPIRIT TAVERN</p>
+      
+  </span>
 </header>
 
 
@@ -29,12 +32,14 @@
           </div>
           <button id="loginSubmit" class="btn btn-primary float-left">Submit</button>
         </form>
-        <button id="homeButtonLogin" class="btn btn-primary homeButton">Go back</button>
+        <a href="/" class="btn btn-secondary btn-lg btn-block" id = "signupButton">GO BACK</a>
 
 
       </div>
   </div>
 </div>
+
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
@@ -46,6 +51,7 @@
 }
 
 .sidenav {
+      font-family: 'Oswald', sans-serif;
   display: none;
   height: 100%;
   width: 250px;
@@ -53,7 +59,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #023446;
   overflow-x: hidden;
   padding-top: 60px;
 }
@@ -62,7 +68,7 @@
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #DCD8AD;
   display: block;
 }
 
@@ -83,5 +89,4 @@
   .sidenav a {font-size: 18px;}
 }
 </style>
-
 
