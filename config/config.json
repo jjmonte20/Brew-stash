@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": "EpicGis20",
+    "password": "root",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",

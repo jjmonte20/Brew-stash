@@ -10,20 +10,17 @@ module.exports = function(app) {
 	//   });
 	// });
 
-	// Get all of the breweries
-	app.get("/api/breweries", function(req, res) {
-		db.Example.findAll({}).then(function(dbExamples) {
-			res.json(dbExamples);
-		});
-	});
+	// Get all of the breweries for one id
+	// app.get("/api/breweries", function(req, res) {
+	// 	var query = {};
+	// 	if (req.query.)
+	// });
 
 
 	// Get all of the drinks
-	app.get("/api/drinks", function(req, res) {
-		db.Example.findAll({}).then(function(dbExamples) {
-			res.json(dbExamples);
-		});
-	});
+	// app.get("/api/drinks", function(req, res) {
+	
+	// });
   
 	// ------------------------------------------------------- 
 	// POSTS to do account info
@@ -32,65 +29,98 @@ module.exports = function(app) {
 		db.User.create({
 			username: req.body.username,
 			password: req.body.password,
-			admin: req.body.admin
-		}).then(function(result) {
-			console.log(result);
+		}).then(function() {
 			// if the user is not unique, would like to reload the page or show on the alert screen that the username is already takens
 			// redirect should then take the user to the login page
-			return res.redirect(307, "/api/login");
+			res.redirect(307, "/api/login");
 		}).catch(function(err) {
 			console.log(err);
 			res.json(err);
 		});
 	});
 
+	// at the moment if the user makes an account, they will be logged in
+	// but on a reload, the user will need to input their account info
 	app.post("/api/login", passport.authenticate("local"), function(req, res){
-		return res.send(req.user);
+		// if the user is able to log in, send them to the breweries page
+		res.json("/breweries");
 	});
 
+	// route for logging the user out
+	app.get("/logout", function(req, res) {
+		req.logout();
+		res.redirect("/");
+	})
 
+	//=================================================================
+		// making a signup brewmaster page in case it is needed
+	// app.post("/api/signupBrewMaster", function(req, res) {
+	// 	console.log(req.body);
+	// 	db.BrewMaster.create({
+	// 		username: req.body.username,
+	// 		password: req.body.password,
+	// 	}).then(function(result) {
+	// 		console.log(result);
+	// 		// if the user is not unique, would like to reload the page or show on the alert screen that the username is already takens
+	// 		// redirect should then take the user to the login page
+	// 		return res.redirect(307, "/api/login");
+	// 	}).catch(function(err) {
+	// 		console.log(err);
+	// 		res.json(err);
+	// 	});
+	// });
+	//===================================================================
 	// User adding a rating
-	app.post("/api/breweries/drink/rating", function(req, res) {
-		// will need to see body for adding a brewery
-		db.Example.create(req.body).then(function(dbExample) {
-			// will be a post for if the user has the correct account info
-			res.json(dbExample);
-		});
-	});
+	// app.post("/api/breweries/drink/rating", function(req, res) {
+	// 	// will need to see body for adding a brewery
+	// 	db.Example.create(req.body).then(function(dbExample) {
+	// 		// will be a post for if the user has the correct account info
+	// 		res.json(dbExample);
+	// 	});
+	// });
 
 	// -------------------------------------------------------
 	// POSTS to add breweries and drinks
 
 	// Create a new example
 
-	app.post("/api/breweries", function(req, res) {
-		// will need to see body for adding a brewery
-		db.Example.create(req.body).then(function(dbExample) {
-			res.json(dbExample);
-		});
-	});
+	// app.post("/api/breweries", function(req, res) {
+	// 	// will need to see body for adding a brewery
+	// 	db.brewery_table.create(req.body).then(function(dbbrewery_table) {
+	// 		res.json(dbbrewery_table);
+	// 	})
+	// });
 
-	app.post("/api/breweries/drink", function(req, res) {
-		// will need to see body for adding a drink
-		db.Example.create(req.body).then(function(dbExample) {
-			res.json(dbExample);
-		});
-	});
+	// app.post("/api/breweries/drink", function(req, res) {
+	// 	// let's see what the body looks like
+	// 	console.log(req.body);
+	// 	// if the body looks good make a call to add
+	// 	db.Drinks.create({
+	// 		// double check these if they don't add in postman
+	// 		breweryId: req.body.id,
+	// 		type: req.body.type,
+	// 		price: req.body.price
+	// 	}).then(function(result) {
+	// 		// let's see the result first
+	// 		console.log(result);
+	// 	}).catch(function(err) {
+	// 		console.log(err);
+	// 		res.json(err);
+	// 	});
+	// });
 
 	// -------------------------------------------------------------
 	// DELETES
 
 	// deleting a brewery
-	app.delete("/api/breweries/:id", function(req, res) {
-		db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-			res.json(dbExample);
-		});
-	});
+	// app.delete("/api/breweries/:id", function(req, res) {
+	// 	db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+	// 		res.json(dbExample);
+	// 	});
+	// });
 
-	// deleting a drink
-	app.delete("/api/breweries/drink/:id", function(req, res) {
-		db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-			res.json(dbExample);
-		});
-	});
+	// // deleting a drink
+	// app.delete("/api/breweries/drink/:id", function(req, res) {
+		
+	// });
 };
