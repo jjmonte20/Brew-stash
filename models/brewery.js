@@ -10,14 +10,13 @@ module.exports = function(sequelize, DataTypes) {
 	// need to associate user with a brewery
 	// brewery cannot be created without a user
 	Brewery.associate = function(models) {
-		// brewery cannot bet created without an author
 		Brewery.belongsTo(models.User, {
 			foreignKey: {
 				allowNull: false
 			}
 		});
 
-		Brewery.hasMany(models.Drinks,{
+		Brewery.hasMany(models.Drinks, {
 			onDelete: "cascade"
 		});		
 	};
