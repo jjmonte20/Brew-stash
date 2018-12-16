@@ -7,5 +7,12 @@ module.exports = function(sequelize, DataTypes) {
 		// rating: DataTypes.INTEGER
 
 	});
+	// Drinks.associate = function(models) {
+	// 	Drinks.belongsTo(models.Brewery, {
+	// 		foreignKey: {
+	// 			allowNull: false
+	// 		}
+	// 	});
+	// }
 	return Drinks;
 };
