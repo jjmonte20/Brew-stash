@@ -65,8 +65,8 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get("/adddrinks", function(req, res) {
-		res.render("addDrinks", {
+	app.get("/edit", function(req, res) {
+		res.render("editDrinks", {
 			title: "Add Drinks!",
 			hideToolbar: "true"
 		});
@@ -74,6 +74,20 @@ module.exports = function(app) {
 
 	app.get("/brewsignup", function(req, res) {
 		res.render("brewersignup", {
+			title: "Sign up!",
+			hideToolbar: "true"
+		});
+	});
+
+	app.get("/admin", function(req, res) {
+		res.render("adminpage", {
+			title: "Sign up!",
+			hideToolbar: "true"
+		});
+	});
+
+	app.get("/accountinfo", function(req, res) {
+		res.render("useraccount", {
 			title: "Sign up!",
 			hideToolbar: "true"
 		});
