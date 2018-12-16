@@ -17,6 +17,12 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		});		
 	};
+
+	Brewery.associate = function(model) {
+		Brewery.hasMany(model.Drinks,{
+			onDelete: "cascade"
+		})
+	}
 	// making an association where brewery can have many drinks
 	// drink cannot be created with having a brewery associated with it
 	

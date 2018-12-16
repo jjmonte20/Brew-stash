@@ -4,17 +4,6 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 	// Load index page
-	// app.get("/", function(req, res) {
-	// 	db.brewery_table.findAll({}).then(function(breweries) {
-	// 		res.render("index", {
-	// 			title: "Home Page!",
-	// 			msg: "Welcome!",
-	// 			hideToolbar: "true",
-	// 			breweries: breweries,
-	// 			examples: []
-	// 		});
-	// 	});
-	// });
 	app.get("/", function(req, res) {
 		res.render("index", {
 			title: "Home Page!",
@@ -25,12 +14,10 @@ module.exports = function(app) {
 	})
 
 	app.get("/points", isAuthenticated, function(req, res) {
-		db.Example.findAll({}).then(function(dbExamples) {
-			res.render("points", {
-				title: "Points Page!",
-				msg: "Welcome!",
-				examples: dbExamples
-			});
+		res.render("points", {
+			title: "Points Page!",
+			msg: "Welcome!",
+			examples: dbExamples
 		});
 	});
 

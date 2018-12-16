@@ -39,10 +39,18 @@ module.exports = function(app) {
 		});
 	});
 
+	// at the moment if the user makes an account, they will be logged in
+	// but on a reload, the user will need to input their account info
 	app.post("/api/login", passport.authenticate("local"), function(req, res){
 		// if the user is able to log in, send them to the breweries page
 		res.json("/breweries");
 	});
+
+	// route for logging the user out
+	app.get("/logout", function(req, res) {
+		req.logout();
+		res.redirect("/");
+	})
 
 	//=================================================================
 		// making a signup brewmaster page in case it is needed
