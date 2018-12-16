@@ -54,7 +54,7 @@ module.exports = function(app) {
 	});
 
 	//=================================================================
-		// making a signup brewmaster page in case it is needed
+	// making a signup brewmaster page in case it is needed
 	// app.post("/api/signupBrewMaster", function(req, res) {
 	// 	console.log(req.body);
 	// 	db.BrewMaster.create({

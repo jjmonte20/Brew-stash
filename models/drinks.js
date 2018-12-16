@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	var Drinks = sequelize.define("Drinks", {
 		// link brewery by brewery id in brewery table
+		drink_name: DataTypes.TEXT, 
 		type: DataTypes.TEXT,
 		price: DataTypes.INTEGER
 		// rating: DataTypes.INTEGER
@@ -12,6 +13,6 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false
 			}
 		});
-	}
+	};
 	return Drinks;
 };

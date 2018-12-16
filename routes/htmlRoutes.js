@@ -53,7 +53,30 @@ module.exports = function(app) {
 			hideToolbar: "false"
 		});
 	});
+
+	app.get("/admin", function(req, res) {
+		res.render("adminpage", {
+			title: "Create an Account!",
+			msg: "Welcome!",
+			hideToolbar: "true",
+		});
+	});
   
+	app.get("/edit", function(req, res) {
+		res.render("editDrinks", {
+			title: "Create an Account!",
+			msg: "Welcome!",
+			hideToolbar: "true",
+		});
+	});
+
+	app.get("/addBreweries", function(req, res) {
+		res.render("adminbreweries", {
+			title: "Create an Account!",
+			msg: "Welcome!",
+			hideToolbar: "true",
+		});
+	});
 	// Render 404 page for any unmatched routes
 	app.get("*", function(req, res) {
 		res.render("404", {
@@ -61,4 +84,5 @@ module.exports = function(app) {
 			hideToolbar: "true"
 		});
 	});
+
 };
