@@ -2,14 +2,19 @@ $(document).ready(function() {
     // here there will be some variables that are on the html file
     var brewerName = $("#brewerName");
     var brewerAddress = $("#brewerAddress");
+    // this is for the form for adding a brewery
+    var brewerySubmit = $("#addBrewery");
     var userSelect = $("#user");
+
+    // ===========================================
+
     // Here there will be a submit form triggering an action
-    $("#addBrewery").on("submit", handleFormSubmit);
+    $(brewerySubmit).on("submit", handleFormSubmit);
     // Gets to the part of the url that comes after the "?"
     var url = window.location.search;
     var breweryId;
     var userId;
-    // set a flag whether it's updating or not
+    // set a flag whether it's updating or not, should be false at first
     var updating = false;
 
     // If we have this in our url, we pull out the post id from the user

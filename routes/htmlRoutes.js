@@ -53,7 +53,14 @@ module.exports = function(app) {
 			hideToolbar: "false"
 		});
 	});
-  
+	
+	app.get("/admin", isAuthenticated, function(req, res) {
+		res.render("adminbreweries", {
+			title: "Admin Page",
+			msg: "Welcome!",
+			hideToolbar: "true"
+		});
+	});
 	// Render 404 page for any unmatched routes
 	// app.get("*", function(req, res) {
 	// 	res.render("404", {

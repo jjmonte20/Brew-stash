@@ -1,0 +1,107 @@
+<header> 
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/account">Account</a>
+	<a href="#">Drinks</a> 
+    <a id = "logout" href="/">Log out</a>
+	</div>
+
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
+    <p id ="headerWords">SPIRIT TAVERN</p>
+    
+  </span>
+</header>
+
+<div id="home">
+  <div class="container col-10" >
+        <span id="adminHaader"></span>
+        <div id="drinkSettingsBox">
+            <div class="list-group">
+                {{!-- <a href="/edit" class="list-group-item list-group-item-action">
+                    Cras justo odio
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> --}}
+              
+                
+
+            </div>
+        </div>
+        {{!-- <div class="form-group">
+          <label for="usr">Add a beer:</label>
+          <input type="text" class="form-control" id="usr">
+          <button id="beerSubmit" class="btn btn-primary float-left">Submit</button>
+        </div> --}}
+
+        <form>
+        Brewery name:
+        <input type="text" name="type" id="breweryName" placeholder="cool"><br>
+        Street Address:
+        <input type="text" name="type" id="street" placeholder="cool"><br>
+        City:
+        <input type="text" name="type" id="city" placeholder="cool"><br>
+        State:
+        <input type="text" name="type" id="state" placeholder="cool"><br>
+        Zip Code:
+        <input type="text" name="type" id="zip" placeholder="cool"><br>
+        <button id="submitbrewery" class="btn btn-primary float-right">Submit</button>
+
+    </form>
+        <br>
+        
+  </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/inputBrewery.js"></script>
+
+<style> 
+
+  body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+      font-family: 'Oswald', sans-serif;
+
+  display: none;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #023446;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #DCD8AD;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
