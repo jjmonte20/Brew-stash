@@ -20,8 +20,8 @@ $(document).ready(function() {
     }
 
     loginUser(userLoginData.username, userLoginData.password);
-    usernameInput.val("");
-    userpasswordInput.val("");
+    // usernameInput.val("");
+    // userpasswordInput.val("");
     // console.log("login button pressed");
     function loginUser(username, password) {
       $.post("/api/login", {
