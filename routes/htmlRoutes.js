@@ -44,7 +44,6 @@ var router = express.Router();
 		});
 	});
 
-
 	router.get("/createaccount", function(req, res) {
 		res.render("createaccount", {
 			title: "Create an Account!",
@@ -52,6 +51,7 @@ var router = express.Router();
 			hideToolbar: "true",
 		});
 	});
+
 	router.get("/account", isAuthenticated, function(req, res) {
 		res.render("account", {
 			title: "Your account!",
@@ -67,6 +67,22 @@ var router = express.Router();
 			var hbsObject = { brewery: dbBrewery }
 			// console.log(hbsObject);
 			res.render("adminbreweries", hbsObject
+	
+			// 	{ title: "Admin Page",
+			// 	msg: "Welcome!",
+			// 	hideToolbar: "true"
+			// }
+			);
+		});
+	});
+
+	router.get("/drinks", isAuthenticated, function(req, res) {
+		db.Drinks.findAll()
+		.then(function(dbDrinks){
+			console.log(dbDrinks);
+			// var hbsObject = { drinks: dbDrinks }
+			// console.log(hbsObject);
+			res.render("addDrinks" //hbsObject
 	
 			// 	{ title: "Admin Page",
 			// 	msg: "Welcome!",
