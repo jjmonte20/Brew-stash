@@ -34,7 +34,6 @@ function addDrinks(event){
         `
         <a href="#" class="list-group-item list-group-item-action" id="drinkInfo"> ` + breweryData.brewery + `<br> `+  breweryData.address + ` ` + breweryData.city + `, ` + breweryData.state + ` ` + breweryData.zip + `
         </a>
-        <br>
         
         `
     );

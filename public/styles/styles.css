@@ -93,6 +93,55 @@
     color: #023446;
   }
   
+  /*input drinks */
+  #drinktitle{
+    text-align:center;
+  }
+
+  #inputDrinks{
+    background-color: red;
+    padding: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+  }
+
+  #submitdrinks{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
+
+  /*input breweries page*/
+  #brewtitle{
+    text-align: center;
+  }
+
+  #inputbrewery{
+    background-color: red;
+    padding: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+  }
+
+  #submitbrewery{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
 
   /* affects all pages */
 
