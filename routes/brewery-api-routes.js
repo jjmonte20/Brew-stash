@@ -7,6 +7,9 @@ var express = require("express");
 // need to route
 var router = express.Router();
 
+// using the middleware to route the user around
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // routes
 
 
@@ -39,7 +42,7 @@ var router = express.Router();
     });
 
     // POST route for saving a new brewery
-    router.post("/api/breweries", function(req, res) {
+    router.post("/api/breweries", isAuthenticated, function(req, res) {
         db.Brewery.create(req.body).then(function(dbPost) {
             res.json(dbPost);
         });

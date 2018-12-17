@@ -20,10 +20,12 @@ var router = express.Router();
 	});
 
 	router.get("/points", isAuthenticated, function(req, res) {
+		// tested to see what req.user is
+		// console.log(req.user);
 		res.render("points", {
 			title: "Points Page!",
 			msg: "Welcome!",
-			examples: dbExamples
+			// examples: dbExamples
 		});
 	});
 
@@ -60,6 +62,20 @@ var router = express.Router();
 		});
 	});
 	
+	// get a dynamic route that shows the userId
+	router.get("/admin/me", isAuthenticated, function(req,res) {
+		// want to determine the id here where the id is whatever the userid is
+		db.Brewery.findAll({
+			where: {
+				id: req.user.id
+			}
+		}).then(function(dbBrewery) {
+			var hbsObject = { brewery: dbBrewery }
+			res.render("adminbreweries", hbsObject);
+		})
+	})
+
+	// working example without a dynamic url
 	router.get("/admin", isAuthenticated, function(req, res) {
 		db.Brewery.findAll()
 		.then(function(dbBrewery){

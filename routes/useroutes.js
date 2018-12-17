@@ -26,5 +26,6 @@ var router = express.Router();
             res.json(dbUser);
         });
     });
+
 // ==================== always on the bottom
 module.exports = router;

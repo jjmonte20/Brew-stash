@@ -1,3 +1,4 @@
+{{!-- I want this to be a dynamic url that matches the brewery id --}}
 <header> 
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -24,13 +25,13 @@
                 <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
                 <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
                 <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> --}}
-              
-                
-
             </div>
         </div>
         <div id="drinkList">
           <ul id="drinks">
+            {{!-- ======================================================= --}}
+            {{!-- got drinks to show, next I want to get all of the drinks to show that share the same brewery id --}}
+            {{!-- ======================================================= --}}
             {{#each drinks}}
               {{> drinks/drink-block}}
             {{/each}}

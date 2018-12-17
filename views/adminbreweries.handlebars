@@ -1,3 +1,4 @@
+{{!-- I want this body to end up being a dynamic url that shows the user id on the url bar --}}
 <header> 
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -31,6 +32,9 @@
         </div>
         <div id="breweryList">
           <ul id="brewlist">
+            {{!-- ======================================================= --}}
+            {{!-- adding brewery works, next I want to had a brewery if it matches the user ID --}}
+            {{!-- ======================================================= --}}
             {{#each brewery}}
               {{!-- {{brewer_name}} --}}
               {{> breweries/brew-block}}

@@ -26,9 +26,9 @@ $(document).ready(function(){
     var breweryId;
     var userId;
     
-    if (url.indexOf("?user_id=") !== -1) {
-        userId = url.split("=")[1];
-    }
+    // if (url.indexOf("?user_id=") !== -1) {
+    //     userId = url.split("=")[1];
+    // }
     
     function handleFormSubmit(event) {
         event.preventDefault();
