@@ -40,10 +40,14 @@ $(document).ready(function(){
         });
     }
 
+    // all this does is reroute to drinks where the brewery id is the added variable to the url id
     $(".addDrinks").on("click", function() {
         console.log("Rerouting to: " + $(this).data("id"));
+        var id = $(this).data("id");
+        window.location.href = ("/drinks/" + id);
     });
 
+    // Delete function for breweries
     $(".deleteBrewery").on("click", function() {
         console.log("Delete: " + $(this).data("id"));
         var id = $(this).data("id");

@@ -78,6 +78,21 @@ var router = express.Router();
 		});
 	});
 
+	router.get("/drinks/:id", isAuthenticated, function(req, res) {
+		db.Drinks.findAll({
+			where: {
+				BreweryId: req.params.id
+			},
+			include: [db.Brewery]
+		}).then(function(dbDrinks) {
+			var hbsObject = { drinks: dbDrinks };
+			console.log(hbsObject)
+			res.render("addDrinks", hbsObject);
+		})
+	})
+
+
+
 	// router.get("/admin/:id", isAuthenticated, function(req,res) {
 	// 	// var id = req.params.id;
 	// 	req.params.id = req.user.id;
