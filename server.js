@@ -34,6 +34,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/brewery-api-routes")(app);
+require("./routes/useroutes")(app);
 
 var syncOptions = { force: true };
 

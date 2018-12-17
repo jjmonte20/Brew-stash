@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
 		User.associate = function(models) {
 			// user associating with brewery
 			// when user is deleted, also delete the brewery
-			User.hasOne(models.User, {
+			User.hasOne(models.Brewery, {
 				onDelete: "cascade"
 			});
 		}

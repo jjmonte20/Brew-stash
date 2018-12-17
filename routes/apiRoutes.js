@@ -24,7 +24,7 @@ module.exports = function(app) {
 
 	app.post("/api/login", passport.authenticate("local"), function(req, res){
 		// if the user is able to log in, send them to the breweries page
-		res.json("/breweries");
+		res.json("/account");
 	});
 	
 	// ------------------------------------------------------- 
