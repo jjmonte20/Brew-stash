@@ -8,14 +8,14 @@ module.exports = function(app) {
     app.get("/api/breweries", function(req, res) {
         var query = {};
         if (req.query.user_id) {
-            query.BrewerId = req.query.user_id;
+            query.UserId = req.query.user_id;
         }
         // here we need to include the property to option for the findAll query
         db.Brewery.findAll({
             where: query,
             include: [db.User]
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
@@ -27,8 +27,8 @@ module.exports = function(app) {
                 id: req.params.id
             },
             include: [db.User]
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
@@ -40,10 +40,10 @@ module.exports = function(app) {
     });
 
     // POST route for saving a new drink
-    app.post("/api/breweries/drinks", function(req, res) {
-        db.Drinks.create(req.body).then(function(dbPost) {
-            res.json(dbPost);
-        })
-    });
+    // app.post("/api/breweries/drinks", function(req, res) {
+    //     db.Drinks.create(req.body).then(function(dbPost) {
+    //         res.json(dbPost);
+    //     })
+    // });
 // below always on the bottom ================
 }
