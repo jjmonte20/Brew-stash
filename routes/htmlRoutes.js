@@ -68,12 +68,40 @@ var router = express.Router();
 		db.Brewery.findAll({
 			where: {
 				UserId: req.user.id
-			}
-		}).then(function(dbBrewery) {
-			var hbsObject = { brewery: dbBrewery }
+			},
+			include: [db.User]
+		}
+	).then(function(dbBrewery) {
+			var hbsObject = { brewery: dbBrewery };
+			console.log(hbsObject);
 			res.render("adminbreweries", hbsObject);
-		})
-	})
+		});
+	});
+
+	// router.get("/admin/:id", isAuthenticated, function(req,res) {
+	// 	// var id = req.params.id;
+	// 	req.params.id = req.user.id;
+	// 	console.log("params = " + req.params.id);
+	// 	// want to determine the id here where the id is whatever the userid is
+	// 	db.User.findAll({
+	// 		where: {
+	// 			id: req.user.id
+	// 		}
+	// 	}//,
+	// 	// db.User.findAll({
+	// 	// 	where: {
+	// 	// 		id: req.user.id
+	// 	// 	}
+	// 	// })
+	// ).then(function(dbUser) {
+	// 		var hbsObject = { user: dbUser };
+	// 		// var hbsObject2 = { user: dbUser};
+	// 		// console.log(dbUser);
+	// 		// console.log(hbsObject2);
+	// 		console.log(hbsObject);
+	// 		res.send(hbsObject);
+	// 	});
+	// });
 
 	// working example without a dynamic url
 	router.get("/admin", isAuthenticated, function(req, res) {

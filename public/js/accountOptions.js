@@ -22,10 +22,19 @@ $(document).ready(function(){
     $(brewerySubmit).on("submit", handleFormSubmit);
     
     // Gets the part of the url that comes after the "?"
-    var url = window.location.search;
-    var breweryId;
-    var userId;
+    // var url = window.location.search;
+    // var breweryId;
+    // make the userId equal something that can be unique to the user
+    // var userId;
+
+    // function getUserId() {
+    //     $.get("/api/getData", function(data) {
+    //         console.log(data);
+    //         userId = data.id;
+    //     });
+    // }
     
+    // getUserId();
     // if (url.indexOf("?user_id=") !== -1) {
     //     userId = url.split("=")[1];
     // }
@@ -38,7 +47,6 @@ $(document).ready(function(){
             brewer_name: brewerName.val().trim(),
             address: brewerAddress.val().trim(),
             // hard coding in this variable until I can figure out what to do with it
-            UserId: req.user.id
         };
         console.log(newBrewery);
         submitBrewery(newBrewery);
@@ -50,6 +58,5 @@ $(document).ready(function(){
             window.location.reload();
         });
     }
-// ===========================================
+// // ===========================================
 });
-    

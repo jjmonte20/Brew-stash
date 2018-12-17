@@ -46,7 +46,9 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
     // 1 only allow posts to users that are logged in
     // 2 get the user id and replace there
     router.post("/api/breweries", isAuthenticated, function(req, res) {
-        db.Brewery.create(req.body).then(function(dbPost) {
+        var newObj = req.body;
+        newObj.UserId = req.user.id;
+        db.Brewery.create(newObj).then(function(dbPost) {
             res.json(dbPost);
         });
     });

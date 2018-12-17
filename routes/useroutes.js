@@ -1,6 +1,10 @@
 // require models
 var db = require("../models");
 
+// is authenticated
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
+
 // also need express
 var express = require("express");
 
@@ -16,15 +20,20 @@ var router = express.Router();
         });
     });
 
-    router.get("/api/users/:id", function(req, res) {
+    router.get("/api/users/:id", isAuthenticated, function(req, res) {
         // in this case one user
         db.User.findOne({
             where: {
-                id: req.params.id
+                id: req.user.id
             }
         }).then(function(dbUser) {
             res.json(dbUser);
         });
+    });
+
+    router.get("/api/getData", isAuthenticated, function(req, res) {
+        // console.log(req.user);
+        res.json(req.user);
     });
 
 // ==================== always on the bottom
