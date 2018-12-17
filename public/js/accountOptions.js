@@ -20,25 +20,7 @@ $(document).ready(function(){
     // need to ask about making it default to the userId
     // var userSelect = $("#user");
     $(brewerySubmit).on("submit", handleFormSubmit);
-    
-    // Gets the part of the url that comes after the "?"
-    // var url = window.location.search;
-    // var breweryId;
-    // make the userId equal something that can be unique to the user
-    // var userId;
-
-    // function getUserId() {
-    //     $.get("/api/getData", function(data) {
-    //         console.log(data);
-    //         userId = data.id;
-    //     });
-    // }
-    
-    // getUserId();
-    // if (url.indexOf("?user_id=") !== -1) {
-    //     userId = url.split("=")[1];
-    // }
-    
+        
     function handleFormSubmit(event) {
         event.preventDefault();
         // console.log("I've been clicked");
@@ -46,7 +28,6 @@ $(document).ready(function(){
         var newBrewery = {
             brewer_name: brewerName.val().trim(),
             address: brewerAddress.val().trim(),
-            // hard coding in this variable until I can figure out what to do with it
         };
         console.log(newBrewery);
         submitBrewery(newBrewery);
@@ -58,5 +39,18 @@ $(document).ready(function(){
             window.location.reload();
         });
     }
+
+    $(".addDrinks").on("click", function() {
+        console.log("Rerouting to: " + $(this).data("id"));
+    });
+
+    $(".deleteBrewery").on("click", function() {
+        console.log("Delete: " + $(this).data("id"));
+        var id = $(this).data("id");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/breweries/" + id
+        }).then(window.location.reload());
+    });
 // // ===========================================
 });

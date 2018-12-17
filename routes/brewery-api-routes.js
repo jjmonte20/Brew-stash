@@ -48,11 +48,20 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
     router.post("/api/breweries", isAuthenticated, function(req, res) {
         var newObj = req.body;
         newObj.UserId = req.user.id;
-        db.Brewery.create(newObj).then(function(dbPost) {
-            res.json(dbPost);
+        db.Brewery.create(newObj).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
+    router.delete("/api/breweries/:id", function(req, res) {
+        db.Brewery.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
+        });
+    });
     // POST route for saving a new drink
     // app.post("/api/breweries/drinks", function(req, res) {
     //     db.Drinks.create(req.body).then(function(dbPost) {
