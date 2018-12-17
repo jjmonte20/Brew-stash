@@ -61,10 +61,18 @@ var router = express.Router();
 	});
 	
 	router.get("/admin", isAuthenticated, function(req, res) {
-		res.render("adminbreweries", {
-			title: "Admin Page",
-			msg: "Welcome!",
-			hideToolbar: "true"
+		db.Brewery.findAll()
+		.then(function(dbBrewery){
+			console.log(dbBrewery);
+			var hbsObject = { brewery: dbBrewery }
+			// console.log(hbsObject);
+			res.render("adminbreweries", hbsObject
+	
+			// 	{ title: "Admin Page",
+			// 	msg: "Welcome!",
+			// 	hideToolbar: "true"
+			// }
+			);
 		});
 	});
 	// Render 404 page for any unmatched routes
