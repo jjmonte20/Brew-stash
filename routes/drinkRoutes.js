@@ -33,8 +33,32 @@ module.exports = function(app) {
                 id: req.params.id
             },
             include: [db.Brewery]
-        }).then(function(dbDrink) {
-            res.json(dbDrink);
+        }).then(function(dbDrinks) {
+            res.json(dbDrinks);
+        });
+    });
+
+    // DELETE route for deleting drinks
+    app.delete("/api/drinks/:id", function(req, res) {
+        db.Drinks.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbDrinks){
+            res.json(dbDrinks);
+        });
+    });
+
+    // PUT route for updating drinks
+    app.put("/api/drinks", function(req, res) {
+        db.Drinks.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(dbDrinks) {
+            res.json(dbDrinks);
         });
     });
 // =================================================
