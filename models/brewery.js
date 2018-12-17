@@ -1,10 +1,28 @@
 module.exports = function(sequelize, DataTypes) {
-	var brewery_table = sequelize.define("brewery_table", {
+	var Brewery = sequelize.define("Brewery", {
 		brewer_name: DataTypes.STRING,
 		address: DataTypes.TEXT,
 		// rating: DataTypes.INTEGER
 	},{
 		timestamps:false
 	});
-	return brewery_table;
+
+	// need to associate user with a brewery
+	// brewery cannot be created without a user
+	Brewery.associate = function(models) {
+		Brewery.belongsTo(models.User, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+	
+
+		Brewery.hasMany(models.Drinks, {
+			onDelete: "cascade"
+		});		
+	};	
+	// making an association where brewery can have many drinks
+	// drink cannot be created with having a brewery associated with it
+	
+	return Brewery;
 };

@@ -31,8 +31,18 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
+var breweryApi = require("./routes/brewery-api-routes");
+var userApi = require("./routes/useroutes");
+var drinksApi = require("./routes/drinkRoutes");
+
+// using the routes
+app.use(apiRoutes);
+app.use(htmlRoutes);
+app.use(breweryApi);
+app.use(userApi);
+app.use(drinksApi);
 
 var syncOptions = { force: true };
 
@@ -43,7 +53,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+// turn sync options back on afterwards
+db.sequelize.sync().then(function() {
  	app.listen(PORT, function() {
 		console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT,	PORT);
 	});
