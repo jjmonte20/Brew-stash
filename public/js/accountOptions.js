@@ -11,7 +11,7 @@ $(document).ready(function(){
     // $("#navbar1").on("click", function() {
     //     if ($("mySidenav"))
     // })
-    
+
     // here there will be some variables that are on the html file
     var brewerName = $("#breweryName");
     var brewerAddress = $("#street");
@@ -47,6 +47,7 @@ $(document).ready(function(){
     function submitBrewery(brewery) {
         $.post("/api/breweries", brewery, function() {
             console.log("submitted");
+            window.location.reload();
         });
     }
 // ===========================================
