@@ -11,13 +11,13 @@ var router = express.Router();
 
 	// Load index page
 	router.get("/", function(req, res) {
-		res.render("index", {
+		res.render("home", {
 			title: "Home Page!",
 			msg: "Welcome!",
 			hideToolbar: "true",
 			examples: []
-		})
-	})
+		});
+	});
 
 	router.get("/points", isAuthenticated, function(req, res) {
 		res.render("points", {
