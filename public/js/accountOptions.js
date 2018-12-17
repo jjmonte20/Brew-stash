@@ -38,7 +38,7 @@ $(document).ready(function(){
             brewer_name: brewerName.val().trim(),
             address: brewerAddress.val().trim(),
             // hard coding in this variable until I can figure out what to do with it
-            UserId: 1
+            UserId: req.user.id
         };
         console.log(newBrewery);
         submitBrewery(newBrewery);

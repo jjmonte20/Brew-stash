@@ -67,7 +67,7 @@ var router = express.Router();
 		// want to determine the id here where the id is whatever the userid is
 		db.Brewery.findAll({
 			where: {
-				id: req.user.id
+				UserId: req.user.id
 			}
 		}).then(function(dbBrewery) {
 			var hbsObject = { brewery: dbBrewery }

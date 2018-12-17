@@ -42,6 +42,9 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
     });
 
     // POST route for saving a new brewery
+    // isAuthenticated is meant to do 2 things atm, though it is a test
+    // 1 only allow posts to users that are logged in
+    // 2 get the user id and replace there
     router.post("/api/breweries", isAuthenticated, function(req, res) {
         db.Brewery.create(req.body).then(function(dbPost) {
             res.json(dbPost);
