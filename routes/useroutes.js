@@ -1,8 +1,13 @@
 // require models
 var db = require("../models");
 
-module.exports = function(app) {
-    app.get("/api/users", function(req, res) {
+// also need express
+var express = require("express");
+
+// need to route
+var router = express.Router();
+
+    router.get("/api/users", function(req, res) {
         // in this case we will include breweries
         db.User.findAll({
             include: [db.Brewery]
@@ -11,7 +16,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/users/:id", function(req, res) {
+    router.get("/api/users/:id", function(req, res) {
         // in this case one user
         db.User.findOne({
             where: {
@@ -22,4 +27,4 @@ module.exports = function(app) {
         });
     });
 // ==================== always on the bottom
-}
+module.exports = router;

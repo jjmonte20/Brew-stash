@@ -1,4 +1,17 @@
 $(document).ready(function(){
+
+    // function openNav() {
+    //     document.getElementById("mySidenav").style.display = "block";
+    // }
+      
+    // function closeNav() {
+    //     document.getElementById("mySidenav").style.display = "none";
+    // }
+
+    // $("#navbar1").on("click", function() {
+    //     if ($("mySidenav"))
+    // })
+    
     // here there will be some variables that are on the html file
     var brewerName = $("#breweryName");
     var brewerAddress = $("#street");

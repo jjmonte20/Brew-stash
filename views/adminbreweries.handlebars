@@ -29,6 +29,14 @@
 
             </div>
         </div>
+        <div id="breweryList">
+          <ul id="brewlist">
+            {{#each brewery}}
+              {{> breweries/brew-block}}
+            {{/each}}
+          </ul>
+        </div>
+
         {{!-- <div class="form-group">
           <label for="usr">Add a beer:</label>
           <input type="text" class="form-control" id="usr">

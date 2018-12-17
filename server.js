@@ -31,11 +31,18 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-require("./routes/brewery-api-routes")(app);
-require("./routes/useroutes")(app);
-require("./routes/drinkRoutes")(app);
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
+var breweryApi = require("./routes/brewery-api-routes");
+var userApi = require("./routes/useroutes");
+var drinksApi = require("./routes/drinkRoutes");
+
+// using the routes
+app.use(apiRoutes);
+app.use(htmlRoutes);
+app.use(breweryApi);
+app.use(userApi);
+app.use(drinksApi);
 
 var syncOptions = { force: true };
 

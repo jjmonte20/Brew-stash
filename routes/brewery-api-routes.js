@@ -1,11 +1,17 @@
 // requiring our models
 var db = require("../models");
 
+// also need express
+var express = require("express");
+
+// need to route
+var router = express.Router();
+
 // routes
-module.exports = function(app) {
+
 
     // get route for getting all of the posts
-    app.get("/api/breweries", function(req, res) {
+    router.get("/api/breweries", function(req, res) {
         var query = {};
         if (req.query.user_id) {
             query.UserId = req.query.user_id;
@@ -20,7 +26,7 @@ module.exports = function(app) {
     });
 
     // get route for retrieving a single brewery
-    app.get("/api/breweries/:id", function(req, res) {
+    router.get("/api/breweries/:id", function(req, res) {
         // here we need to find one brewery
         db.Brewery.findOne({
             where: {
@@ -33,7 +39,7 @@ module.exports = function(app) {
     });
 
     // POST route for saving a new brewery
-    app.post("/api/breweries", function(req, res) {
+    router.post("/api/breweries", function(req, res) {
         db.Brewery.create(req.body).then(function(dbPost) {
             res.json(dbPost);
         });
@@ -46,4 +52,5 @@ module.exports = function(app) {
     //     })
     // });
 // below always on the bottom ================
-}
+
+module.exports = router;
