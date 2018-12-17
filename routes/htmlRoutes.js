@@ -80,9 +80,9 @@ var router = express.Router();
 		db.Drinks.findAll()
 		.then(function(dbDrinks){
 			console.log(dbDrinks);
-			// var hbsObject = { drinks: dbDrinks }
+			var hbsObject = { drinks: dbDrinks }
 			// console.log(hbsObject);
-			res.render("addDrinks" //hbsObject
+			res.render("addDrinks", hbsObject
 	
 			// 	{ title: "Admin Page",
 			// 	msg: "Welcome!",
