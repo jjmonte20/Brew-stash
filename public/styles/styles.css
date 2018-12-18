@@ -1,20 +1,163 @@
-@media only screen and (min-width: 1000px) {
-  body {
-    background-color: lightblue;
-  }
-
-  #homeButtonLogin{
-    height: 30px;
-  }
-
-  #loginForm{
-    padding: 20px 20px;
-  }
-}
-
-
 @media only screen and (max-width: 1000px) {
+  /* nav bar  */
+
+  #navbar1{
+    position: fixed;
+    top: 0;
+    background-color: #023446;
+    color: #DCD8AD;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    float: left;
+    border-bottom: 20px;
+  }
+
+  #logout{
+    position: absolute;
+    bottom:0;
+  }
+
+  #headerWords{
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    position: absolute;
+    top: 0;  
+    left: 25%;  
+    padding: 5px;
+  }
+
+  .sidenav {
+    font-family: 'Oswald', sans-serif;
+    display: none;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #023446;
+    overflow-x: hidden;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #DCD8AD;
+    display: block;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  /*home page buttons */
   
+  #indexBody{
+    position:absolute;
+    bottom: 10%;
+  }
+
+  #loginButton1{
+    font-family: 'Oswald', sans-serif;
+
+    box-sizing: border-box;
+    height:50px;
+    width: 80%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
+
+  #backButton{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height: 50px;
+    width:80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+
+  }
+
+  /*create account page */
+
+  #brewdrink{
+    font-size: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .nav-link{
+    color: #023446;
+  }
+  
+  /*input drinks */
+  #drinktitle{
+    text-align:center;
+  }
+
+  #inputDrinks{
+    background-color: red;
+    padding: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+  }
+
+  #submitdrinks{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
+
+  /*input breweries page*/
+  #brewtitle{
+    text-align: center;
+  }
+
+  #inputbrewery{
+    background-color: red;
+    padding: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+  }
+
+  #submitbrewery{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
+  }
 
   /* affects all pages */
 
@@ -36,7 +179,7 @@
   body {
     width: 100%;
     font-size: 100px;
-    background: yellow;
+    background: white;
   }
   label {
     text-align: center;
@@ -58,9 +201,11 @@
 }
   /* /home styles */
   #home {
-    font-size: 40px;
+    border-top: 20px;
+    font-size: 15px;
+    padding: 25px 0;
   }
-  #loginButton, #createAccountButton {
+  #loginButton, #createAccountButton, #breweriesButton {
     width: 100%;
     height: 80px;
     margin-top:20px;
@@ -89,12 +234,11 @@
   #loginForm {
     width: 100%;
   }
-  #homeButtonLogin {
-  }
 
   /* /brewery styles */
   #breweryContainer{
-    background: red;
+    background: #ECE3C5;
+    color: #023446;
     width: 100%;
     margin-top: 10px;
     overflow: scroll;
@@ -115,6 +259,8 @@
     position: absolute;
     left: 25%;
     bottom: -10%;
+    background-color: #023446;
+    color: #DCD8AD;
   }
   /* /points styles */
   #pointsContainer {
@@ -137,7 +283,10 @@
   #brewmasterSettingsBox {
     width: 100%;
     height: 250px;
-    background: red;
+    background-color: #ECE3C5;
+    color: #023446;
+
+
     overflow: scroll;
     border-radius: 10px;
   }
@@ -146,6 +295,17 @@
   }
   #beerSubmit {
     margin-top: 10px;
+    font-family: 'Oswald', sans-serif;
+
+    box-sizing: border-box;
+    height:50px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 5px;
+
   }
   #homeButtonAccount {
     width: 50%;
@@ -156,48 +316,7 @@
     bottom: -0%;
   }
   /* NAVBAR styles */
-  .navbar{
-    font-size: 22px;
-    position: fixed;
-    width: 106%;
-    height: 8.5%;
-    top:0%;
-    left: -3%;
-    z-index: 999;
-  }
 
-  .headerSection {
-    width: 33.33%;
-    position: relative;
-    height: 100%;
-  }
-  #headerLeft{
-    background: green;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 125%;
-    z-index: 200;
-  }
-  #headerMiddle{
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    height: 125%;
-    z-index: 200;
-  }
-  #headerRight{
-    background: blue;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 125%;
-    border-right: 1%;
-    z-index: 200;
-  }
 
   #headerPointsLink, #headerBreweriesLink {
     color:black;
@@ -217,5 +336,11 @@
     color: green;
   }
 
-
 }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* admin page */
