@@ -31,7 +31,11 @@ $(document).ready(function() {
             BreweryId: result
         }
         console.log(newDrink);
-        submitDrink(newDrink);
+        if (isNaN(newDrink.price) === true) {
+            alert("Please enter a whole number in the price field");
+        } else {
+            submitDrink(newDrink);
+        }
     }
 
     function submitDrink(drink) {
@@ -58,7 +62,11 @@ $(document).ready(function() {
             BreweryId: result
         }
         console.log(editDrink);
-        updateDrink(editDrink);
+        if (isNaN(editDrink.price) === true) {
+            alert("Please enter a number in the price field!");
+        } else {
+            updateDrink(editDrink);
+        }
     });
 
     function updateDrink(edit) {

@@ -4,11 +4,11 @@
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="/account">Account</a>
 	<a href="#">Drinks</a> 
-    <a id = "logout" href="/">Log out</a>
+    <a id = "logout" href="/logout">Log out</a>
 	</div>
 
 	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
-    <p id ="headerWords">SPIRIT TAVERN</p>
+    <p id ="headerWords">Brew-stash</p>
     
   </span>
 </header>
@@ -28,14 +28,13 @@
             </div>
         </div>
         <div id="drinkList">
-          <ul id="drinks">
+          <h1>Your Drinks</h1>
             {{!-- ======================================================= --}}
             {{!-- got drinks to show, next I want to get all of the drinks to show that share the same brewery id --}}
             {{!-- ======================================================= --}}
             {{#each drinks}}
               {{> drinks/drink-block}}
             {{/each}}
-          </ul>
         </div>
         {{!-- <div class="form-group">
           <label for="usr">Add a beer:</label>
@@ -45,11 +44,11 @@
 
         <form id="#addDrink">
         Drink name:
-        <input type="text" name="type" id="drink" placeholder="cool"><br>
+        <input type="text" name="type" id="drink" placeholder="name"><br>
         Drink price:
-        <input type="text" name="price" id="price" placeholder="cool"><br>
+        <input type="text" name="price" id="price" placeholder="123"><br>
         Drink type:
-        <input type="text" name="type" id="type" placeholder="cool"><br>
+        <input type="text" name="type" id="type" placeholder="lager"><br>
         <button id="submitdrinks" class="btn btn-primary float-right">Submit</button>
 
     </form>

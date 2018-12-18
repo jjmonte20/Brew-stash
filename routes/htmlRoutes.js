@@ -37,12 +37,11 @@ var router = express.Router();
 		});
 	});
 
-	router.get("/breweries", isAuthenticated, function(req, res) {
-		res.render("breweries", {
-			title: "Breweries Page!",
-			msg: "Welcome!",
-			hideToolbar: "false",
-			examples: []
+	router.get("/breweries", function(req, res) {
+		db.Brewery.findAll({
+		}).then(function(viewDrinks){
+			var hbsObject = { brewery: viewDrinks };
+			res.render("breweries", hbsObject);
 		});
 	});
 
@@ -88,11 +87,20 @@ var router = express.Router();
 			var hbsObject = { drinks: dbDrinks };
 			console.log(hbsObject)
 			res.render("addDrinks", hbsObject);
+		});
+	});
+
+	router.get("/viewdrinks/:id", function(req,res) {
+		db.Drinks.findAll({
+			where: {
+				BreweryId: req.params.id
+			},
+			include: [db.Brewery]
+		}).then(function(dbVdrinks) {
+			var hbsObject = { drinks: dbVdrinks };
+			res.render("account", hbsObject);
 		})
 	})
-
-
-
 	// router.get("/admin/:id", isAuthenticated, function(req,res) {
 	// 	// var id = req.params.id;
 	// 	req.params.id = req.user.id;
