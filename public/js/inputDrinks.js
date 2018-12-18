@@ -40,6 +40,24 @@ $(document).ready(function() {
             window.location.reload();
         });
     }
+
+    // now I need button functions for the other objects
+    $(".editDrink").on("click", function() {
+        console.log("Edit: " + $(this).data("id"));
+        // since it will be on the same page, we should have this be a put request
+        // for the drink id
+    });
+
+    $(".deleteDrink").on("click", function() {
+        console.log("Delete: " + $(this).data("id"));
+        var id = $(this).data("id");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/drinks/" + id
+        }).then(function() {
+            window.location.reload();
+        })
+    });
     // next let's set a button to do something
     // $("#addBeerButton").on("click", function(event){
     //     // test that the button works
