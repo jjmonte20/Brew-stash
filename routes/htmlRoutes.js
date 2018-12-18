@@ -14,26 +14,21 @@ var router = express.Router();
 		res.render("home", {
 			title: "Home Page!",
 			msg: "Welcome!",
-			hideToolbar: "true",
 			examples: []
 		});
 	});
 
-	// router.get("/points", isAuthenticated, function(req, res) {
-	// 	// tested to see what req.user is
-	// 	// console.log(req.user);
-	// 	res.render("points", {
-	// 		title: "Points Page!",
-	// 		msg: "Welcome!",
-	// 		// examples: dbExamples
-	// 	});
-	// });
+	router.get("/createaccount", function(req, res) {
+		res.render("createaccount", {
+			title: "Create an Account!",
+			msg: "Welcome!",
+		});
+	});
 
 	router.get("/login", function(req, res) {
 		res.render("login", {
 			title: "Log In!",
 			msg: "Welcome!",
-			hideToolbar: "true"
 		});
 	});
 
@@ -44,24 +39,33 @@ var router = express.Router();
 			res.render("breweries", hbsObject);
 		});
 	});
-
-	router.get("/createaccount", function(req, res) {
-		res.render("createaccount", {
-			title: "Create an Account!",
+	
+	router.get("/account", function(req, res) {
+		res.render("account", {
+			title: "Breweries Page!",
 			msg: "Welcome!",
-			hideToolbar: "true",
 		});
 	});
 
-	// router.get("/account", isAuthenticated, function(req, res) {
-	// 	res.render("account", {
-	// 		title: "Your account!",
-	// 		msg: "Welcome!",
-	// 		hideToolbar: "false"
-	// 	});
-	// });
-	
-	// get a dynamic route that shows the userId
+
+	router.get("/adminbreweries", isAuthenticated, function(req, res) {
+		res.render("adminbreweries", {
+			title: "Breweries Page!",
+			msg: "Welcome!",
+			examples: []
+		});
+	});
+
+	router.get("/adddrinks", isAuthenticated, function(req, res) {
+		res.render("adddrinks", {
+			title: "Drinks Page!",
+			msg: "Welcome!",
+			examples: []
+		});
+	});
+
+
+
 	router.get("/admin/me", isAuthenticated, function(req,res) {
 		// want to determine the id here where the id is whatever the userid is
 		db.Brewery.findAll({
@@ -101,32 +105,6 @@ var router = express.Router();
 			res.render("account", hbsObject);
 		})
 	})
-	// router.get("/admin/:id", isAuthenticated, function(req,res) {
-	// 	// var id = req.params.id;
-	// 	req.params.id = req.user.id;
-	// 	console.log("params = " + req.params.id);
-	// 	// want to determine the id here where the id is whatever the userid is
-	// 	db.User.findAll({
-	// 		where: {
-	// 			id: req.user.id
-	// 		}
-	// 	}//,
-	// 	// db.User.findAll({
-	// 	// 	where: {
-	// 	// 		id: req.user.id
-	// 	// 	}
-	// 	// })
-	// ).then(function(dbUser) {
-	// 		var hbsObject = { user: dbUser };
-	// 		// var hbsObject2 = { user: dbUser};
-	// 		// console.log(dbUser);
-	// 		// console.log(hbsObject2);
-	// 		console.log(hbsObject);
-	// 		res.send(hbsObject);
-	// 	});
-	// });
-
-	// working example without a dynamic url
 	
 	router.get("/drinks", isAuthenticated, function(req, res) {
 		db.Drinks.findAll()
@@ -143,12 +121,5 @@ var router = express.Router();
 			);
 		});
 	});
-	// Render 404 page for any unmatched routes
-	// app.get("*", function(req, res) {
-	// 	res.render("404", {
-	// 		title: "Page Not Found",
-	// 		hideToolbar: "true"
-	// 	});
-	// });
 
 module.exports = router;
