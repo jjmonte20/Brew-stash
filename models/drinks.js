@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	var Drinks = sequelize.define("Drinks", {
 		// link brewery by brewery id in brewery table
-		drink_name: DataTypes.TEXT, 
+		name: DataTypes.STRING,
 		type: DataTypes.TEXT,
 		price: DataTypes.INTEGER
 		// rating: DataTypes.INTEGER

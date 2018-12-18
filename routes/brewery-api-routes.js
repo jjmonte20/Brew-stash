@@ -1,49 +1,73 @@
 // requiring our models
 var db = require("../models");
 
+// also need express
+var express = require("express");
+
+// need to route
+var router = express.Router();
+
+// using the middleware to route the user around
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // routes
-module.exports = function(app) {
+
 
     // get route for getting all of the posts
-    app.get("/api/breweries", function(req, res) {
+    router.get("/api/breweries", function(req, res) {
         var query = {};
         if (req.query.user_id) {
-            query.BrewerId = req.query.user_id;
+            query.UserId = req.query.user_id;
         }
         // here we need to include the property to option for the findAll query
         db.Brewery.findAll({
             where: query,
             include: [db.User]
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
     // get route for retrieving a single brewery
-    app.get("/api/breweries/:id", function(req, res) {
+    router.get("/api/breweries/:id", function(req, res) {
         // here we need to find one brewery
         db.Brewery.findOne({
             where: {
                 id: req.params.id
             },
             include: [db.User]
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
     // POST route for saving a new brewery
-    app.post("/api/breweries", function(req, res) {
-        db.Brewery.create(req.body).then(function(dbPost) {
-            res.json(dbPost);
+    // isAuthenticated is meant to do 2 things atm, though it is a test
+    // 1 only allow posts to users that are logged in
+    // 2 get the user id and replace there
+    router.post("/api/breweries", isAuthenticated, function(req, res) {
+        var newObj = req.body;
+        newObj.UserId = req.user.id;
+        db.Brewery.create(newObj).then(function(dbBrewery) {
+            res.json(dbBrewery);
         });
     });
 
-    // POST route for saving a new drink
-    app.post("/api/breweries/drinks", function(req, res) {
-        db.Drinks.create(req.body).then(function(dbPost) {
-            res.json(dbPost);
-        })
+    router.delete("/api/breweries/:id", function(req, res) {
+        db.Brewery.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbBrewery) {
+            res.json(dbBrewery);
+        });
     });
+    // POST route for saving a new drink
+    // app.post("/api/breweries/drinks", function(req, res) {
+    //     db.Drinks.create(req.body).then(function(dbPost) {
+    //         res.json(dbPost);
+    //     })
+    // });
 // below always on the bottom ================
-}
+
+module.exports = router;

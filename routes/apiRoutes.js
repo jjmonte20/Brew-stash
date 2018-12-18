@@ -1,7 +1,12 @@
 var db = require("../models");
+
 var passport = require("../config/passport");
 
-module.exports = function(app) {
+// also need express
+var express = require("express");
+
+// need to route
+var router = express.Router();
 
 	// Get all examples
 	// app.get("/api/user", function(req, res) {
@@ -22,14 +27,16 @@ module.exports = function(app) {
 	
 	// });
 
-	app.post("/api/login", passport.authenticate("local"), function(req, res){
+	router.post("/api/login", passport.authenticate("local"), function(req, res){
 		// if the user is able to log in, send them to the breweries page
-		res.json("/breweries");
+		
+		res.json("/admin/me");
+		// res.redirect("/admin/:id");
 	});
 	
 	// ------------------------------------------------------- 
 	// POSTS to do account info
-	app.post("/api/signup", function(req, res) {
+	router.post("/api/signup", function(req, res) {
 		console.log(req.body);
 		db.User.create({
 			username: req.body.username,
@@ -48,7 +55,7 @@ module.exports = function(app) {
 	// but on a reload, the user will need to input their account info
 
 	// route for logging the user out
-	app.get("/logout", function(req, res) {
+	router.get("/logout", function(req, res) {
 		req.logout();
 		res.redirect("/");
 	});
@@ -124,4 +131,4 @@ module.exports = function(app) {
 	// app.delete("/api/breweries/drink/:id", function(req, res) {
 		
 	// });
-};
+module.exports = router;
