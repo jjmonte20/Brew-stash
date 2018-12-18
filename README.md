@@ -7,4 +7,9 @@
   
   Over the weekend we worked on the Brewery Master making a profile, adding breweries, editing beers, logo, slide show.
  
- Today 12/17/2018 we are working on refining the Front and Back End, making people want to use our WebApp. We are now able to edit the breweries. 
+ On 12/17/2018 we are working on refining the Front and Back End, making people want to use our WebApp.  
+ 
+ On 12/18/2018 Julian was able to Edit the drinks after initial submition. Name/Price/Type!
+ We will be refining the Front End entry forms, Looks. We are working on connecting Front and Back End correctly with the buttons and making sure the functions and routes connect.
+ 
+ 
