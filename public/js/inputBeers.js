@@ -14,12 +14,14 @@ $(document).ready(function() {
     $(document).on("click", "#drinkInfo", editDrinks);
 
 });
+
 //current drinks array
 var drinks = [];
 
 // var drinkInput = $("#drink");
 // var priceInput = $("#price");
 // var drinkType = $("#type");
+
 
 function addDrinks(event){
     event.preventDefault();
@@ -34,7 +36,7 @@ function addDrinks(event){
     
     $(".list-group").prepend(
         `
-        <a href="#" class="list-group-item list-group-item-action" id="drinkInfo"> Drink: ` + drinkData.drink + `<br> `+ `Price: `+ drinkData.price + `<br> `+`Type: ` +drinkData.type + `
+        <a href="/edit" class="list-group-item list-group-item-action" id="drinkInfo"> Drink: ` + drinkData.drink + `<br> `+ `Price: `+ drinkData.price + `<br> `+`Type: ` +drinkData.type + `
         </a>
         
         `
@@ -46,13 +48,7 @@ function addDrinks(event){
 
 };
 
-function editDrinks(event){
-    var currentDrink = $(this).data("drinks");
-    // send this to an edit url
-    console.log(currentDrink);
 
-
-}
 
 // $(document).ready(function(){
 
