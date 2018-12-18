@@ -13,6 +13,11 @@
 // now let's put in a function, make sure it's when the document is ready
 $(document).ready(function() {
     // set a button to do something
+
+    // this is the front end solution to getting the brewery id
+    var url = window.location.toString();
+    var result = url.substring(url.lastIndexOf("/") + 1);
+    // console.log(result);
     $("#submitdrinks").on("click", handleDrinkSubmit);
 
     function handleDrinkSubmit(event) {
@@ -22,9 +27,8 @@ $(document).ready(function() {
             name: $("#drink").val().trim(),
             price: $("#price").val().trim(),
             type: $("#type").val().trim(),
-            BreweryId: 1
             // will add a breweryId field when I know how to default to it at the top
-            // BreweryId: req.Brewery.Id
+            BreweryId: result
         }
         console.log(newDrink);
         submitDrink(newDrink);
@@ -36,6 +40,47 @@ $(document).ready(function() {
             window.location.reload();
         });
     }
+
+    // now I need button functions for the other objects
+    $(".editDrink").on("click", function() {
+        console.log("Edit: " + $(this).data("id"));
+        // since it will be on the same page, we should have this be a put request
+        // for the drink id
+        var id = $(this).data("id");
+        var editDrink = {
+            // will need to get these values
+            // using id in this case because the back end will need it in the body
+            id: id,
+            name: $("#drink").val().trim(),
+            price: $("#price").val().trim(),
+            type: $("#type").val().trim(),
+            // will add a breweryId field when I know how to default to it at the top
+            BreweryId: result
+        }
+        console.log(editDrink);
+        updateDrink(editDrink);
+    });
+
+    function updateDrink(edit) {
+        $.ajax({
+            method: "PUT",
+            url: "/api/drinks",
+            data: edit
+        }).then(function() {
+            window.location.reload();
+        })
+    }
+
+    $(".deleteDrink").on("click", function() {
+        console.log("Delete: " + $(this).data("id"));
+        var id = $(this).data("id");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/drinks/" + id
+        }).then(function() {
+            window.location.reload();
+        })
+    });
     // next let's set a button to do something
     // $("#addBeerButton").on("click", function(event){
     //     // test that the button works

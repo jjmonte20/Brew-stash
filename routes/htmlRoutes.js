@@ -19,15 +19,15 @@ var router = express.Router();
 		});
 	});
 
-	router.get("/points", isAuthenticated, function(req, res) {
-		// tested to see what req.user is
-		// console.log(req.user);
-		res.render("points", {
-			title: "Points Page!",
-			msg: "Welcome!",
-			// examples: dbExamples
-		});
-	});
+	// router.get("/points", isAuthenticated, function(req, res) {
+	// 	// tested to see what req.user is
+	// 	// console.log(req.user);
+	// 	res.render("points", {
+	// 		title: "Points Page!",
+	// 		msg: "Welcome!",
+	// 		// examples: dbExamples
+	// 	});
+	// });
 
 	router.get("/login", function(req, res) {
 		res.render("login", {
@@ -54,13 +54,13 @@ var router = express.Router();
 		});
 	});
 
-	router.get("/account", isAuthenticated, function(req, res) {
-		res.render("account", {
-			title: "Your account!",
-			msg: "Welcome!",
-			hideToolbar: "false"
-		});
-	});
+	// router.get("/account", isAuthenticated, function(req, res) {
+	// 	res.render("account", {
+	// 		title: "Your account!",
+	// 		msg: "Welcome!",
+	// 		hideToolbar: "false"
+	// 	});
+	// });
 	
 	// get a dynamic route that shows the userId
 	router.get("/admin/me", isAuthenticated, function(req,res) {
@@ -119,22 +119,7 @@ var router = express.Router();
 	// });
 
 	// working example without a dynamic url
-	router.get("/admin", isAuthenticated, function(req, res) {
-		db.Brewery.findAll()
-		.then(function(dbBrewery){
-			console.log(dbBrewery);
-			var hbsObject = { brewery: dbBrewery }
-			// console.log(hbsObject);
-			res.render("adminbreweries", hbsObject
 	
-			// 	{ title: "Admin Page",
-			// 	msg: "Welcome!",
-			// 	hideToolbar: "true"
-			// }
-			);
-		});
-	});
-
 	router.get("/drinks", isAuthenticated, function(req, res) {
 		db.Drinks.findAll()
 		.then(function(dbDrinks){
