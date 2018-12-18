@@ -46,7 +46,30 @@ $(document).ready(function() {
         console.log("Edit: " + $(this).data("id"));
         // since it will be on the same page, we should have this be a put request
         // for the drink id
+        var id = $(this).data("id");
+        var editDrink = {
+            // will need to get these values
+            // using id in this case because the back end will need it in the body
+            id: id,
+            name: $("#drink").val().trim(),
+            price: $("#price").val().trim(),
+            type: $("#type").val().trim(),
+            // will add a breweryId field when I know how to default to it at the top
+            BreweryId: result
+        }
+        console.log(editDrink);
+        updateDrink(editDrink);
     });
+
+    function updateDrink(edit) {
+        $.ajax({
+            method: "PUT",
+            url: "/api/drinks",
+            data: edit
+        }).then(function() {
+            window.location.reload();
+        })
+    }
 
     $(".deleteDrink").on("click", function() {
         console.log("Delete: " + $(this).data("id"));
