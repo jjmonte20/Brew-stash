@@ -1,18 +1,13 @@
 <div id="home">
   <div class="container col-10" >
         <img id="googleMap" class="img-fluid" src="/images/mapAustin.gif" alt="logo">
+        <h1>Beer Map under construction/ See Scott for details</h1>
         <div id="breweryContainer">
+          <h1>Local Breweries</h1>
           <ul>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
+            {{#each brewery}}
+              {{> breweries/view-block}}
+            {{/each}}
           </ul>
       </div>
       <a class="newLogoutButton" href="/logout">
@@ -23,3 +18,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/viewport.js"></script>

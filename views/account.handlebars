@@ -1,21 +1,9 @@
 <div id="home">
   <div class="container col-10" >
-        <span id="brewmasterHeader">Brewmaster Corner</span>
-        <div id="brewmasterSettingsBox">
-          <ul>
-            <li>Your Tavern<ul>
-              <li>beer 1</li>
-              <li>beer 2</li>
-            </ul></li>
-          </ul>
-        </div>
-        <div class="form-group">
-          <label for="usr">Add a beer:</label>
-          <input type="text" class="form-control" id="usr">
-          <button id="beerSubmit" class="btn btn-primary float-left">Submit</button>
-        </div>
-        <br>
-        <button id="homeButtonAccount" class="btn btn-primary homeButton">Log Out</button>
+    <h1>Drink List</h1>
+        {{#each drinks}}
+          {{> drinks/view-block}}
+        {{/each}}
   </div>
 </div>
 
