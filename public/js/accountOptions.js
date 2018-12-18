@@ -54,7 +54,10 @@ $(document).ready(function(){
         $.ajax({
             method: "DELETE",
             url: "/api/breweries/" + id
-        }).then(window.location.reload());
+        }).then(function(){
+            window.location.reload();
+        });
     });
+
 // // ===========================================
 });

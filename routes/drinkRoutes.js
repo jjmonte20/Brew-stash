@@ -7,8 +7,12 @@ var express = require("express");
 // need to route
 var router = express.Router();
 
+// using the middleware to route the user around
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // POST route for drinks
-router.post("/api/drinks", function(req, res) {
+router.post("/api/drinks", isAuthenticated, function(req, res) {
+    // console.log(req.user);
     db.Drinks.create(req.body).then(function(dbPost) {
         res.json(dbPost);
     })
