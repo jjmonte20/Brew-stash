@@ -237,6 +237,7 @@
     width: 50%;
     left: 25%;
     bottom: 0%;
+    color:#DCD8AD;
   }
   #logoNav {
     width: 100%;
@@ -262,6 +263,7 @@
     background: #023446;
     border-color: black;
     font-family: 'Oswald', sans-serif;
+    color: #DCD8AD;
 
   }
 
@@ -276,6 +278,7 @@
     background: #023446;
     border-color: black;
     font-family: 'Oswald', sans-serif;
+    color: #DCD8AD;
   }
   #createAccountButton {
     font-family: 'Oswald', sans-serif;
@@ -304,6 +307,7 @@
   }
   #homeButtonCreate {
     bottom: -5%;
+    color: #DCD8AD;
   }
 
   /* /login styles */
@@ -357,6 +361,7 @@
     position: absolute;
     left: 25%;
     bottom: -10%;
+    color: #DCD8AD;
   }
   /* /account styles */
   #brewmasterSettingsBox {
@@ -391,6 +396,7 @@
     position: absolute;
     left: 25%;
     bottom: -0%;
+    color: #DCD8AD
   }
   /* NAVBAR styles */
 
