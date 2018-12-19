@@ -1,7 +1,23 @@
 <div id="home">
+
+
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <span> welcome: {{username}}</span>
+    <a href="/login">Log In</a>
+    <a href="/createaccount">Create Account</a>
+    <a href="/">Home Page</a>
+	</div>
+    
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
+    <p id ="headerWords">BREW-STASH</p>
+
+
+
+
   <div class="container col-10" >
         <img id="googleMap" class="img-fluid" src="/images/mapAustin.gif" alt="logo">
-        <h1>Beer Map under construction/ See Scott for details</h1>
+        <h1>Map in progress</h1>
         <div id="breweryContainer">
           <h1>Local Breweries</h1>
           <ul>
@@ -11,7 +27,7 @@
           </ul>
       </div>
       <a class="newLogoutButton" href="/logout">
-        <button id="homeButtonBrewery" class="btn btn-primary homeButton">Log Out</button>
+        <button id="homeButtonBrewery" class="btn btn-primary homeButton">Go Back</button>
       </a>
   </div>
 </div>

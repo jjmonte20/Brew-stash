@@ -40,21 +40,21 @@ var router = express.Router();
 		});
 	});
 	
-	router.get("/account", function(req, res) {
-		res.render("account", {
-			title: "Breweries Page!",
-			msg: "Welcome!",
-		});
-	});
+	// router.get("/account", function(req, res) {
+	// 	res.render("account", {
+	// 		title: "Breweries Page!",
+	// 		msg: "Welcome!",
+	// 	});
+	// });
 
 
-	router.get("/adminbreweries", isAuthenticated, function(req, res) {
-		res.render("adminbreweries", {
-			title: "Breweries Page!",
-			msg: "Welcome!",
-			examples: []
-		});
-	});
+	// router.get("/adminbreweries", isAuthenticated, function(req, res) {
+	// 	res.render("adminbreweries", {
+	// 		title: "Breweries Page!",
+	// 		msg: "Welcome!",
+	// 		examples: []
+	// 	});
+	// });
 
 	router.get("/adddrinks", isAuthenticated, function(req, res) {
 		res.render("adddrinks", {
@@ -102,7 +102,7 @@ var router = express.Router();
 			include: [db.Brewery]
 		}).then(function(dbVdrinks) {
 			var hbsObject = { drinks: dbVdrinks };
-			res.render("account", hbsObject);
+			res.render("datastore", hbsObject);
 		})
 	})
 	
