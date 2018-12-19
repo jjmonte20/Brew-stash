@@ -38,13 +38,15 @@
 
     </form>
         <div id="drinkList">
-          <h1>Your Drinks</h1>
+            <div id="breweryContainer">
+                <h1>Your Drinks</h1>
             {{!-- ======================================================= --}}
             {{!-- got drinks to show, next I want to get all of the drinks to show that share the same brewery id --}}
             {{!-- ======================================================= --}}
             {{#each drinks}}
               {{> drinks/drink-block}}
             {{/each}}
+            </div>
         </div>
 
 
