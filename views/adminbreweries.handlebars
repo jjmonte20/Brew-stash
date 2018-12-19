@@ -1,0 +1,54 @@
+<div id="home">
+
+
+
+
+
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;display:block;" onclick="openNav()">&#9776;
+        <p id ="headerWords">BREW-STASH</p>
+    </span>
+
+
+	<div id="mySidenav" class="sidenav">
+        <span id ="navbar2" style="font-size:30px;cursor:pointer;" onclick="closeNav()">&#9776;<p id ="headerWords">BREW-STASH</p></span>
+        <img id="logoNav" src="/images/logonav.png" alt="nav logo">
+        <a href="/admin/me">Your Breweries</a>
+        <a href="/logout">Log out</a>
+	</div>
+
+
+
+
+  <div class="container col-10" >
+
+    <form id="cmsBrewery">
+        Brewery name:
+        <input class="inputBox" type="text" name="type" id="breweryName" placeholder="Your Brewery"><br>
+        Street Address:
+        <input class="inputBox" type="text" name="type" id="street" placeholder="4000 South Lamar Blvd, Austin, TX, 18181"><br>
+        <button id="submitbrewery" class="btn btn-primary float-right">Submit</button>
+    </form>
+
+
+
+        <span id="adminHaader"></span>
+        <div id="drinkSettingsBox">
+            <div class="list-group">
+
+            </div>
+        </div>
+        <div id="breweryList">
+            <h1>Your Breweries</h1>
+            {{#each brewery}}
+              {{!-- {{brewer_name}} --}}
+              {{> breweries/brew-block}}
+            {{/each}}
+        </div>
+
+        <br>
+        
+  </div>
+</div>
+
+<script src="/js/inputBrewery.js"></script>
+<script src="/js/accountOptions.js"></script>

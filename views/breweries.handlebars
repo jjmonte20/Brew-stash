@@ -1,23 +1,38 @@
 <div id="home">
+
+
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;display:block;" onclick="openNav()">&#9776;
+        <p id ="headerWords">BREW-STASH</p>
+    </span>
+
+
+	<div id="mySidenav" class="sidenav">
+        <span id ="navbar2" style="font-size:30px;cursor:pointer;" onclick="closeNav()">&#9776;<p id ="headerWords">BREW-STASH</p></span>
+        <img id="logoNav" src="/images/logonav.png" alt="nav logo">
+        <a href="/login">Log In</a>
+        <a href="/createaccount">Create Account</a>
+        <a href="/">Home Page</a>
+	</div>
+
+
+
+
   <div class="container col-10" >
         <img id="googleMap" class="img-fluid" src="/images/mapAustin.gif" alt="logo">
         <div id="breweryContainer">
+          <h1>Local Breweries</h1>
           <ul>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
-            <li>Brewery 1</li>
+            {{#each brewery}}
+              {{> breweries/view-block}}
+            {{/each}}
           </ul>
       </div>
-      <button id="homeButtonBrewery" class="btn btn-primary homeButton">Log Out</button>
+      <a class="newLogoutButton" href="/logout">
+        <button id="homeButtonBrewery" class="btn btn-primary homeButton">Go Back</button>
+      </a>
   </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/viewport.js"></script>

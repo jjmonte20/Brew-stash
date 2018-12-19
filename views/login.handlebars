@@ -1,13 +1,21 @@
 <div id="home">
+
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;">
+    <p id ="headerWords">BREW-STASH</p>
+    <br>
+
+
+
   <div class="container col-10" >
     <div class="row">
 
-        <img id="logo" class="img-fluid" src="/images/logo.png" alt="logo">
+        <img id="logo" class="img-fluid" src="/images/logowide.png" alt="logo">
 
 
 
-        <form id="loginForm" class="clearfix mb-4" action="/breweries">
+        <form id="login" style="text-align: center;"  class="clearfix mb-4" action="/breweries">
           <div class="form-group">
+            <span style="text-align: center;margin:auto 0;width:100%;">LOG IN</span><br>
             <label for="username">Username</label>
             <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="Enter a username">
           </div>
@@ -15,9 +23,11 @@
             <label for="example-description">Password</label>
             <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="password"></textarea>
           </div>
-          <button id="loginSubmit" class="btn btn-primary float-left">Submit</button>
+          <button id="loginSubmit" class="btn btn-primary float-left">Log In</button>
         </form>
-        <button id="homeButtonLogin" class="btn btn-primary homeButton">Go back</button>
+
+        <a href="/createaccount" id="createAccountButton"  type="button" class="btn btn-primary">CREATE ACCOUNT</button>
+        <a href="/" class="btn btn-secondary btn-lg btn-block" id = "backButton">GO BACK</a>
 
 
       </div>
@@ -25,4 +35,6 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+{{!-- <script src="/js/index.js"></script> --}}
+<script src="/js/login.js"></script>

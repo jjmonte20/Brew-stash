@@ -1,0 +1,62 @@
+{{!-- I want this to be a dynamic url that matches the brewery id --}}
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;display:block;" onclick="openNav()">&#9776;
+        <p id ="headerWords">BREW-STASH</p>
+    </span>
+
+
+	<div id="mySidenav" class="sidenav">
+        <span id ="navbar2" style="font-size:30px;cursor:pointer;" onclick="closeNav()">&#9776;<p id ="headerWords">BREW-STASH</p></span>
+        <img id="logoNav" src="/images/logonav.png" alt="nav logo">
+        <a href="/admin/me">Your Breweries</a>
+        <a href="/logout">Log out</a>
+	</div>
+
+
+<div id="home">
+  <div class="container col-10" >
+        <span id="adminHaader"></span>
+        <div id="drinkSettingsBox">
+            <div class="list-group">
+                {{!-- <a href="/edit" class="list-group-item list-group-item-action">
+                    Cras justo odio
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> --}}
+            </div>
+        </div>
+
+        <form id="addDrink">
+        <span id="words"> Drink Name:  </span>
+        <input type="text" name="type" id="drink" placeholder="Fireman's 4"><br>
+        <span id="words"> Drink Price:   </span>
+        <input type="text" name="price" id="price" placeholder="10.00"><br>
+        <span id="words"> Drink Type:   </span>
+        <input type="text" name="type" id="type" placeholder="lager"><br>
+        <button id="submitdrinks" class="btn btn-primary float-right">SUBMIT</button>
+
+    </form>
+        <div id="drinkList">
+          <h1>Your Drinks</h1>
+            {{!-- ======================================================= --}}
+            {{!-- got drinks to show, next I want to get all of the drinks to show that share the same brewery id --}}
+            {{!-- ======================================================= --}}
+            {{#each drinks}}
+              {{> drinks/drink-block}}
+            {{/each}}
+        </div>
+
+
+        <br>
+    <a href="/admin/me"><button href="/admin/me" id="backToAdminMe" class="btn btn-primary float-right">Back to Breweries
+    </button></a>
+
+        
+  </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/inputDrinks.js"></script>

@@ -10,10 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		admin: {
-			type: DataTypes.BOOLEAN,
-			defaultValue: false
-		}
+		// admin: DataTypes.BOOL
 		// ranking: DataTypes.STRING
 		// ranking: DataTypes.INTEGER
 	});
@@ -25,5 +22,17 @@ module.exports = function(sequelize, DataTypes) {
 	User.hook("beforeCreate", function(user){
 		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(12), null);
 	});
+
+	// if the user is an admin give them the ability to associate with a brewery
+	// if (User.admin === true){
+		User.associate = function(models) {
+			// user associating with brewery
+			// when user is deleted, also delete the brewery
+			User.hasOne(models.Brewery, {
+				onDelete: "cascade"
+			});
+		}
+	// }
+
 	return User;
 };
