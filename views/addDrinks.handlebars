@@ -1,16 +1,15 @@
 {{!-- I want this to be a dynamic url that matches the brewery id --}}
-<header> 
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <img id="logoNav" src="/images/logonav.png" alt="nav logo">
     <a href="/admin/me">Your Breweries</a>
     <a href="/logout">Log out</a>
 	</div>
 
-	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
     <p id ="headerWords">BREW-STASH</p>
-    <br>
   </span>
-</header>
+
 
 <div id="home">
   <div class="container col-10" >
@@ -52,6 +51,9 @@
 
     </form>
         <br>
+    <a href="/admin/me"><button href="/admin/me" id="backToAdminMe" class="btn btn-primary float-right">Back to Breweries
+    </button></a>
+
         
   </div>
 </div>
