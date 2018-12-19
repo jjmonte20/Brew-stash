@@ -11,8 +11,23 @@
     padding: 10px;
     float: left;
     border-bottom: 20px;
+    z-index: 9999;
   }
-
+  #navbar2{
+    position: fixed;
+    top: 0;
+    background-color: #023446;
+    color: #DCD8AD;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    float: left;
+    border-bottom: 20px;
+    z-index: 9999;
+  }
+ #backToAdminMe {
+   background: #023446;
+ }
   #logout{
     position: absolute;
     bottom:0;
@@ -34,12 +49,12 @@
     height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
     background-color: #023446;
     overflow-x: hidden;
     padding-top: 60px;
+    z-index: 9999;
   }
 
   .sidenav a {
@@ -48,10 +63,12 @@
     font-size: 25px;
     color: #DCD8AD;
     display: block;
+    z-index: 9999;
   }
 
   .sidenav a:hover {
     color: #f1f1f1;
+    z-index: 9999;
   }
 
   .sidenav .closebtn {
@@ -60,6 +77,11 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+
+  .closebtn {
+    position: relative;
+    font-size: 50px
   }
 
   /*home page buttons */
@@ -133,10 +155,21 @@
     background-color: #023446;
     padding: 10px;
   }
-
+   #addDrink {
+    width: 100%;;
+  }
+  #drinkList {
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    background: orange;
+  }
   /*input breweries page*/
   #brewtitle{
     text-align: center;
+  }
+  #drink, #price, #type {
+    width: 100%
   }
 
   #inputbrewery{
@@ -158,7 +191,14 @@
     background-color: #023446;
     padding: 10px;
   }
-
+ #breweryList {
+   width:100%;
+   overflow: scroll;
+   height: 300px;
+   background: orange;
+   font-size: 14px;
+   
+ }
   /* affects all pages */
 
   ::-webkit-scrollbar { 
@@ -203,6 +243,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  .inputBox {
+    width: 100%;
+  }
   /* /home styles */
   #home {
     border-top: 20px;
@@ -211,34 +255,39 @@
   }
   #loginButton {
     width: 100%;
-    height: 80px;
+    height: 100px;
     font-size: 30px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background: #023446;
     border-color: black;
+    font-family: 'Oswald', sans-serif;
 
   }
 
 
   #breweriesButton {
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin-top:50px;
     font-size: 30px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background: #023446;
     border-color: black;
+    font-family: 'Oswald', sans-serif;
   }
   #createAccountButton {
-    width: 100%;
-    height: 20px;
-    margin-top:20px;
-    font-size: 10px;
-    border-radius: 10px;
-    background: none;
-    color:black;
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    height: 50px;
+    width:80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #DCD8AD;
+    background-color: #023446;
+    padding: 10px;
   }
 
   /* /createaccount styles */
@@ -259,10 +308,12 @@
 
   /* /login styles */
 
-  #loginForm {
+  #login {
     width: 100%;
   }
-
+ #createAccountForm {
+   width: 100%;
+ }
   /* /brewery styles */
   #breweryContainer{
     background: #ECE3C5;
@@ -270,11 +321,11 @@
     width: 100%;
     margin-top: 10px;
     overflow: scroll;
-    height: 250px;
+    height: 300px;
     border-radius: 10px;
+    font-size: 15px;
   }
   #googleMap {
-    margin-top: 20px;
     margin-bottom: 10px;
     width:100%;
     height: 40%;

@@ -2,23 +2,35 @@
 
 
 
+
+
+	<span id ="navbar1" style="font-size:30px;cursor:pointer;display:block;" onclick="openNav()">&#9776;
+        <p id ="headerWords">BREW-STASH</p>
+    </span>
+
+
 	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <img id="logoNav" src="/images/logonav.png" alt="nav logo">
-    <a href="/admin/me">Your Breweries</a>
-    <a href="/logout">Log out</a>
+        <span id ="navbar2" style="font-size:30px;cursor:pointer;" onclick="closeNav()">&#9776;<p id ="headerWords">BREW-STASH</p></span>
+        <img id="logoNav" src="/images/logonav.png" alt="nav logo">
+        <a href="/admin/me">Your Breweries</a>
+        <a href="/logout">Log out</a>
 	</div>
-
-	<span id ="navbar1" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;
-    <p id ="headerWords">BREW-STASH</p>
-    
-  </span>
-
 
 
 
 
   <div class="container col-10" >
+
+    <form id="cmsBrewery">
+        Brewery name:
+        <input class="inputBox" type="text" name="type" id="breweryName" placeholder="Your Brewery"><br>
+        Street Address:
+        <input class="inputBox" type="text" name="type" id="street" placeholder="4000 South Lamar Blvd, Austin, TX, 18181"><br>
+        <button id="submitbrewery" class="btn btn-primary float-right">Submit</button>
+    </form>
+
+
+
         <span id="adminHaader"></span>
         <div id="drinkSettingsBox">
             <div class="list-group">
@@ -32,20 +44,7 @@
               {{> breweries/brew-block}}
             {{/each}}
         </div>
-        <form id="cmsBrewery">
-        Brewery name:
-        <input type="text" name="type" id="breweryName" placeholder="asdf"><br>
-        Street Address:
-        <input type="text" name="type" id="street" placeholder="123 asdf, Aus, TX, 18181"><br>
-        {{!-- City:
-        <input type="text" name="type" id="city" placeholder="Asdf"><br>
-        State:
-        <input type="text" name="type" id="state" placeholder="AS"><br>
-        Zip Code:
-        <input type="text" name="type" id="zip" placeholder="12345"><br> --}}
-        <button id="submitbrewery" class="btn btn-primary float-right">Submit</button>
 
-    </form>
         <br>
         
   </div>
